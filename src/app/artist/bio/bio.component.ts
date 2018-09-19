@@ -10,9 +10,9 @@ import { HttpAppService } from '../../http-app.service';
 
 export class BioComponent implements OnInit {
 
-    private url = `http://ws.audioscrobbler.com/2.0/`;
-    private artistName: string;
-    private artist: any;
+    url = `http://ws.audioscrobbler.com/2.0/`;
+    artistName: string;
+    artist: any;
 
     constructor(
         private route: ActivatedRoute,
