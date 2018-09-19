@@ -8,7 +8,7 @@ import {HttpAppService} from '../http-app.service';
 })
 export class GenresComponent {
 
-    private genres: Array<any> = [];
+    genres: any[] = [];
 
     constructor(http: HttpAppService) {
         http.getJSON('https://frentsel.github.io/angularRadio/assets/stations.json')
