@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
 import { PreviewStationComponent } from './components/preview-station/preview-station.component';
 import { CitiesComponent } from './cities/cities.component';
-import { GenresComponent } from './genres/genres.component';
 import { StationComponent } from './station/station.component';
 import { ArtistComponent } from './artist/artist.component';
 import { BioComponent } from './artist/bio/bio.component';
@@ -50,7 +49,6 @@ import { LightboxModule } from 'angular2-lightbox';
 		AppComponent,
 		ListComponent,
 		CitiesComponent,
-		GenresComponent,
 		StationComponent,
 		ArtistComponent,
 		BioComponent,

@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
-import { CountriesComponent } from './countries.component';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
+import { CountriesComponent } from './countries.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: '**',
     component: CountriesComponent
   }
 ];
@@ -15,7 +15,6 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes)
   ],
-  exports: [RouterModule],
   declarations: [CountriesComponent]
 })
 export class CountriesModule { }
