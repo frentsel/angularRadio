@@ -13,7 +13,7 @@ import { StationService } from './station.service';
 export class StationComponent implements OnInit {
 
     id = null;
-    station = {};
+    station:any = {};
     timerId;
 
     @Output() artistName: string;

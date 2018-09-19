@@ -1,7 +1,7 @@
 <div class="inner-content">
   <h1>{{title}}</h1>
   <div class="list-station">
-    <ng-template ngFor let-item [ngForOf]="items" let-i="index" [ngForTrackBy]="trackByFn">
+    <ng-template ngFor let-item [ngForOf]="items" let-i="index">
       <preview-station [item]="item"></preview-station>
     </ng-template>
   </div>

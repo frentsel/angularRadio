@@ -8,8 +8,8 @@ import {HttpAppService} from '../http-app.service';
 })
 export class ListComponent {
 
-    private items = [];
-    private title = 'Top 50 Stations';
+    items = [];
+    title = 'Top 50 Stations';
 
     constructor(private route: ActivatedRoute, private http: HttpAppService) {
         route.params.subscribe(this.getData.bind(this));

@@ -8,7 +8,7 @@ import {HttpAppService} from '../http-app.service';
 })
 export class CountriesComponent {
 
-    private countries = [];
+    countries = [];
 
     constructor(private http: HttpAppService) {
         http.getJSON('https://frentsel.github.io/angularRadio/assets/stations.json')
