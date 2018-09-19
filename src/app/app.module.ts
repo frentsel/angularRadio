@@ -8,7 +8,6 @@ import { NgxY2PlayerModule } from 'ngx-y2-player';
 import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
 import { PreviewStationComponent } from './components/preview-station/preview-station.component';
-import { CountriesComponent } from './countries/countries.component';
 import { CitiesComponent } from './cities/cities.component';
 import { GenresComponent } from './genres/genres.component';
 import { StationComponent } from './station/station.component';
@@ -35,47 +34,46 @@ import { PhotosComponent } from './artist/photos/photos.component';
 import { LightboxModule } from 'angular2-lightbox';
 
 @NgModule({
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        HttpModule,
-        LightboxModule,
-        ReactiveFormsModule,
-        NgxY2PlayerModule.forRoot()
-    ],
-    exports: [
-        SearchComponent,
-    ],
-    declarations: [
-        AppComponent,
-        ListComponent,
-        CountriesComponent,
-        CitiesComponent,
-        GenresComponent,
-        StationComponent,
-        ArtistComponent,
-        BioComponent,
-        PlaylistComponent,
-        ArtistPreviewComponent,
-        SimilarComponent,
-        TracksComponent,
-        TopAlbumsComponent,
-        AlbumsComponent,
-        AlbumComponent,
-        NotFoundComponent,
-        SearchComponent,
-        CommentsComponent,
-        PhotosComponent,
-        PreviewStationComponent,
-    ],
-    providers: [
-        StationService,
-        HttpAppService,
-    ],
-    bootstrap: [
-        AppComponent,
-    ],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		FormsModule,
+		HttpModule,
+		LightboxModule,
+		ReactiveFormsModule,
+		NgxY2PlayerModule.forRoot()
+	],
+	exports: [
+		SearchComponent,
+	],
+	declarations: [
+		AppComponent,
+		ListComponent,
+		CitiesComponent,
+		GenresComponent,
+		StationComponent,
+		ArtistComponent,
+		BioComponent,
+		PlaylistComponent,
+		ArtistPreviewComponent,
+		SimilarComponent,
+		TracksComponent,
+		TopAlbumsComponent,
+		AlbumsComponent,
+		AlbumComponent,
+		NotFoundComponent,
+		SearchComponent,
+		CommentsComponent,
+		PhotosComponent,
+		PreviewStationComponent,
+	],
+	providers: [
+		StationService,
+		HttpAppService,
+	],
+	bootstrap: [
+		AppComponent,
+	],
 })
 export class AppModule {
 }

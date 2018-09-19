@@ -1,20 +1,21 @@
-.inner-content {
-    padding: 20px;
+:host {
+  padding: 20px;
+  display: block;
 }
 
 h1 {
-    font-size: 20px;
-    padding: 0 0 14px 0;
-    color: #358;
+  font-size: 20px;
+  padding: 0 0 14px;
+  color: #358;
 }
 
 .label-list-item {
-    text-decoration: none;
-    background: #509895;
-    color: white;
-    padding: 4px 8px;
-    margin: 0 5px 5px 0;
-    display: inline-block;
-    border-radius: 3px;
-    font-size: 14px;
+  text-decoration: none;
+  background: #509895;
+  color: white;
+  padding: 4px 8px;
+  margin: 0 5px 5px 0;
+  display: inline-block;
+  border-radius: 3px;
+  font-size: 14px;
 }
