@@ -15,6 +15,7 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [CountriesComponent]
+  declarations: [CountriesComponent],
+  exports: [CountriesComponent],
 })
 export class CountriesModule { }

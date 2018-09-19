@@ -5,51 +5,51 @@ import 'rxjs/add/operator/map';
 import { StationService } from './station.service';
 
 @Component({
-    moduleId: module.id,
-    templateUrl: './station.component.html',
-    styleUrls: ['./station.component.scss']
+  moduleId: module.id,
+  templateUrl: './station.component.html',
+  styleUrls: ['./station.component.scss']
 })
 
 export class StationComponent implements OnInit {
 
-    id = null;
-    station:any = {};
-    timerId;
+  id = null;
+  station: any = {};
+  timerId;
 
-    @Output() artistName: string;
+  @Output() artistName: string;
 
-    constructor(private activatedRoute: ActivatedRoute, private http: Http, private stationService: StationService) {
-    }
+  constructor(private activatedRoute: ActivatedRoute, private http: Http, private stationService: StationService) {
+  }
 
-    ngOnDestroy() {
-        clearTimeout(this.timerId);
-        this.loadMeta = () => {};
-    }
+  ngOnDestroy() {
+    clearTimeout(this.timerId);
+    this.loadMeta = () => { };
+  }
 
-    loadMeta() {
+  loadMeta() {
 
-        this.http.get(`http://localhost:80/meta.php?id=${this.id}`)
-            .map(res => res.json())
-            .subscribe(data => {
-                this.artistName = data['track'].split(' -').shift();
-            });
+    this.http.get(`http://localhost:80/meta.php?id=${this.id}`)
+      .map(res => res.json())
+      .subscribe(data => {
+        this.artistName = data['track'].split(' -').shift();
+      });
 
-        this.timerId = setTimeout(this.loadMeta.bind(this), 5000);
-    }
+    this.timerId = setTimeout(this.loadMeta.bind(this), 5000);
+  }
 
-    ngOnInit() {
+  ngOnInit() {
 
-        this.activatedRoute.params.subscribe((params: Params) => {
+    this.activatedRoute.params.subscribe((params: Params) => {
 
-            this.http.get('https://frentsel.github.io/angularRadio/assets/stations.json')
-                .map(res => res.json())
-                .subscribe(data => {
-                    this.station = data[this.id];
-                    this.stationService.emitChange(data[this.id].radio);
-                    this.loadMeta();
-                });
-
-            this.id = params['id'];
+      this.http.get('https://frentsel.github.io/angularRadio/assets/stations.json')
+        .map(res => res.json())
+        .subscribe(data => {
+          this.station = data[this.id];
+          this.stationService.emitChange(data[this.id].radio);
+          this.loadMeta();
         });
-    }
+
+      this.id = params['id'];
+    });
+  }
 }

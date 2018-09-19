@@ -1,19 +1,16 @@
-<div class="inner-content">
-    <h1>{{station?.title}}</h1>
-    <div class="station-block">
-        <img src="https://frentsel.github.io/radio.react/images/{{station?.img}}" alt="{{station?.title}}">
-        <div class="station-block__text">
-            <p>{{station?.text}}</p>
-        </div>
-    </div>
-    <div class="station-info">
-        <span>
-            City: <a routerLink="/list/city/{{station?.city}}">{{station?.city}}</a>,
-            Country: <a routerLink="/list/country/{{station?.country}}">{{station?.country}}</a>,
-            Genre: <a routerLink="/list/genre/{{station?.genre}}">{{station?.genreRu}}</a>,
-            Site: <a href="{{station?.radioLink}}" target="_blank">{{station?.radioLink}}</a>
-        </span>
-    </div>
-    <app-artist-preview *ngIf="artistName" [artistName]="artistName"></app-artist-preview>
-    <app-comments></app-comments>
+<h1>{{station?.title}}</h1>
+<div class="station-block">
+  <img src="https://frentsel.github.io/radio.react/images/{{station?.img}}" alt="{{station?.title}}">
+  <div class="station-block__text">
+    <p>{{station?.text}}</p>
+  </div>
 </div>
+<div class="station-info">
+  <span>
+    City: <a routerLink="/list/city/{{station?.city}}">{{station?.city}}</a>, Country: <a routerLink="/list/country/{{station?.country}}">{{station?.country}}</a>,
+    Genre: <a routerLink="/list/genre/{{station?.genre}}">{{station?.genreRu}}</a>, Site: <a href="{{station?.radioLink}}"
+      target="_blank">{{station?.radioLink}}</a>
+  </span>
+</div>
+<!-- <app-artist-preview *ngIf="artistName" [artistName]="artistName"></app-artist-preview> -->
+<app-comments></app-comments>

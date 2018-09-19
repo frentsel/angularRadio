@@ -1,14 +1,14 @@
-import {Injectable} from '@angular/core';
-import {Subject} from 'rxjs/Subject';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class StationService {
 
-    private emitChangeSource = new Subject<any>();
+  private emitChangeSource = new Subject<any>();
 
-    changeEmitted$ = this.emitChangeSource.asObservable();
+  changeEmitted$ = this.emitChangeSource.asObservable();
 
-    emitChange(change: any) {
-        this.emitChangeSource.next(change);
-    }
+  emitChange(change: any) {
+    this.emitChangeSource.next(change);
+  }
 }

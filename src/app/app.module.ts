@@ -8,11 +8,9 @@ import { NgxY2PlayerModule } from 'ngx-y2-player';
 import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
 import { PreviewStationComponent } from './components/preview-station/preview-station.component';
-import { StationComponent } from './station/station.component';
 import { ArtistComponent } from './artist/artist.component';
 import { BioComponent } from './artist/bio/bio.component';
 import { PlaylistComponent } from './artist/playlist/playlist.component';
-import { ArtistPreviewComponent } from './artist/artist-preview/artist-preview.component';
 import { TracksComponent } from './tracks/tracks.component';
 import { TopAlbumsComponent } from './top-albums/top-albums.component';
 import { AlbumsComponent } from './artist/albums/albums.component';
@@ -21,7 +19,7 @@ import { NotFoundComponent } from './notfound/notfound.component';
 
 import { SimilarComponent } from './similar/similar.component';
 import { SearchComponent } from './search/search.component';
-import { CommentsComponent } from './comments/comments.component';
+// import { CommentsModule } from './comments/comments.module';
 
 import { StationService } from './station/station.service';
 import { HttpAppService } from './http-app.service';
@@ -39,7 +37,8 @@ import { LightboxModule } from 'angular2-lightbox';
 		HttpModule,
 		LightboxModule,
 		ReactiveFormsModule,
-		NgxY2PlayerModule.forRoot()
+		NgxY2PlayerModule.forRoot(),
+		// CommentsModule
 	],
 	exports: [
 		SearchComponent,
@@ -47,11 +46,9 @@ import { LightboxModule } from 'angular2-lightbox';
 	declarations: [
 		AppComponent,
 		ListComponent,
-		StationComponent,
 		ArtistComponent,
 		BioComponent,
 		PlaylistComponent,
-		ArtistPreviewComponent,
 		SimilarComponent,
 		TracksComponent,
 		TopAlbumsComponent,
@@ -59,7 +56,6 @@ import { LightboxModule } from 'angular2-lightbox';
 		AlbumComponent,
 		NotFoundComponent,
 		SearchComponent,
-		CommentsComponent,
 		PhotosComponent,
 		PreviewStationComponent,
 	],
