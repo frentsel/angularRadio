@@ -1,0 +1,22 @@
+<div *ngIf="tracks?.length > 0" class="tracks__wrapper">
+    <h2>{{title}}</h2>
+    <ngx-y2-player
+        #video
+        [playerOptions]="playerOptions"
+        (ready)="savePlayer($event)"
+        (change)="onStateChange($event)">
+    </ngx-y2-player>
+    <div>
+        <button (click)="prev()" class="btn">Prev </button>
+        <button (click)="play()" class="btn"> Play </button>
+        <button (click)="pause()" class="btn"> Pause </button>
+        <button (click)="next()" class="btn"> Next</button>
+        <input type="text" #input value="160">
+        <button (click)="go(input.value)" class="btn"> go </button>
+    </div>
+    <div class="tracks">
+        <div *ngFor="let track of tracks; let i = index" (click)="loadAndPlay(track)" class="track" [ngClass]="{'active': current === i}">
+            <strong>{{track.artist.name}}</strong> - {{track.name}}
+        </div>
+    </div>
+</div>

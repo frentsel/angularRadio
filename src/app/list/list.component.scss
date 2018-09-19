@@ -1,0 +1,24 @@
+.inner-content {
+  padding: 20px;
+}
+
+h1 {
+  font-size: 20px;
+  padding: 0 0 14px;
+  color: #358;
+}
+
+.list-station {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+preview-station {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 12px;
+  width: 137px;
+}

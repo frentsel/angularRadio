@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css?family=Cuprum:400,700&subset=cyrillic');
+
+#main {
+    background: #fff;
+    max-width: 640px;
+    margin: 0 auto;
+    font-family: 'Cuprum', sans-serif;
+    font-size: 16px;
+    color: #456;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    max-height: 40px;
+    height: 40px;
+    min-height: 40px;
+    align-items: center;
+    background: #507298;
+    border-left: 1px solid #49698e;
+    border-right: 1px solid #416186;
+    border-bottom: 1px solid #49698e;
+}
+
+.navigation-top {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.navigation-top > a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-right: 1px solid #49698e;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.navigation-top > a.active {
+    background: #45658a;
+}
+
+.navigation-top img {
+    width: 40px;
+    margin-top: -7px;
+}
+
+.content {
+    border-left: 1px solid #cecece;
+    border-right: 1px solid #cecece;
+    border-bottom: 1px solid #cecece;
+    flex-grow: 1;
+    overflow: auto;
+}
+
+.audio-player {
+    width: 100%;
+    height: 32px;
+    border-left: 1px solid #cecece;
+    border-right: 1px solid #cecece;
+}
+
+audio {
+    width: 100%;
+    height: 100%;
+}
+
+/*loader*/
+#loader {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #fdba2c;
+}
+
+#loader.active {
+    display: block;
+}
+
+.bar {
+    content: "";
+    display: inline;
+    position: absolute;
+    width: 0;
+    height: 100%;
+    left: 50%;
+    text-align: center;
+}
+
+.bar:nth-child(1) {
+    background-color: #da4733;
+    animation: loading 3s linear infinite;
+}
+
+.bar:nth-child(2) {
+    background-color: #3b78e7;
+    animation: loading 3s linear 1s infinite;
+}
+
+.bar:nth-child(3) {
+    background-color: #fdba2c;
+    animation: loading 3s linear 2s infinite;
+}
+
+@keyframes loading {
+    from {
+        left: 50%;
+        width: 0;
+        z-index: 100;
+    }
+    33.3333% {
+        left: 0;
+        width: 100%;
+        z-index: 10;
+    }
+    to {
+        left: 0;
+        width: 100%;
+    }
+}

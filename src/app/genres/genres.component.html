@@ -1,0 +1,8 @@
+<div class="inner-content">
+    <h1>Genre List</h1>
+    <div class="" *ngIf="genres">
+        <a *ngFor="let item of genres" class="label-list-item" routerLink="/list/genre/{{item.genre}}">
+            {{item.genre}} - {{item.count}}
+        </a>
+    </div>
+</div>

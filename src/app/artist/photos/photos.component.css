@@ -1,0 +1,44 @@
+.inner-content {
+    padding: 20px;
+}
+
+h1 {
+    font-size: 20px;
+    color: #358;
+}
+
+
+.photos__wrapper {
+    margin: 15px 0;
+    clear: both;
+}
+
+.photos__wrapper > h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.photos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.photos__item {
+    flex-basis: 20%;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+    display: flex;
+    min-width: 140px;
+    flex-grow: 1;
+}
+
+.photos__item > div {
+    width: 100%;
+}
+
+.photos__item > div > img {
+    width: 100%;
+    height: auto;
+    float: left;
+}
