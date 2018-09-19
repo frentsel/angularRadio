@@ -41,7 +41,7 @@ export class StationComponent implements OnInit {
 
         this.activatedRoute.params.subscribe((params: Params) => {
 
-            this.http.get('../assets/stations.json')
+            this.http.get('https://frentsel.github.io/angularRadio/assets/stations.json')
                 .map(res => res.json())
                 .subscribe(data => {
                     this.station = data[this.id];

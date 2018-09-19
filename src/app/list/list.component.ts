@@ -16,7 +16,7 @@ export class ListComponent {
     }
 
     private getData(params: Params) {
-        this.http.getJSON(`../assets/stations.json`)
+        this.http.getJSON(`https://frentsel.github.io/angularRadio/assets/stations.json`)
             .then(data => {
                 this.items = this.filterDataByParams(params, data);
             });

@@ -11,7 +11,7 @@ export class GenresComponent {
     private genres: Array<any> = [];
 
     constructor(http: HttpAppService) {
-        http.getJSON('../assets/stations.json')
+        http.getJSON('https://frentsel.github.io/angularRadio/assets/stations.json')
             .then(this.preparingData.bind(this));
     }
 
