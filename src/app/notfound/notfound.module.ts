@@ -1,13 +1,14 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { StationComponent } from './station.component';
+import { NotFoundComponent } from './notfound.component';
 import { CommentsModule } from '../comments/comments.module';
 
 const routes: Routes = [{
   path: '**',
-  component: StationComponent
+  component: NotFoundComponent
 }];
+
 
 @NgModule({
   imports: [
@@ -16,10 +17,7 @@ const routes: Routes = [{
     CommentsModule
   ],
   declarations: [
-    StationComponent
-  ],
-  exports: [
-    StationComponent
+    NotFoundComponent
   ]
 })
-export class StationModule { }
+export class NotFoundModule { }

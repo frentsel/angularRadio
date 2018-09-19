@@ -1,9 +1,10 @@
-.inner-content {
-    padding: 20px;
+:host {
+  display: block;
+  padding: 20px;
 }
 
 h1 {
-    font-size: 20px;
-    padding: 0 0 14px 0;
-    color: #358;
+  font-size: 20px;
+  padding: 0 0 14px;
+  color: #358;
 }

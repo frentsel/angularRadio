@@ -8,7 +8,6 @@ import { PlaylistComponent } from './artist/playlist/playlist.component';
 import { PhotosComponent } from './artist/photos/photos.component';
 import { AlbumComponent } from './album/album.component';
 import { AlbumsComponent } from './artist/albums/albums.component';
-import { NotFoundComponent } from './notfound/notfound.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -30,7 +29,7 @@ const routes: Routes = [
       { path: 'photos', component: PhotosComponent },
     ]
   },
-  { path: '**', component: NotFoundComponent },
+  { path: '**', loadChildren: 'app/notfound/notfound.module#NotFoundModule' },
 ];
 
 @NgModule({

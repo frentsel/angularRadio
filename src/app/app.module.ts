@@ -15,11 +15,9 @@ import { TracksComponent } from './tracks/tracks.component';
 import { TopAlbumsComponent } from './top-albums/top-albums.component';
 import { AlbumsComponent } from './artist/albums/albums.component';
 import { AlbumComponent } from './album/album.component';
-import { NotFoundComponent } from './notfound/notfound.component';
 
 import { SimilarComponent } from './similar/similar.component';
 import { SearchComponent } from './search/search.component';
-// import { CommentsModule } from './comments/comments.module';
 
 import { StationService } from './station/station.service';
 import { HttpAppService } from './http-app.service';
@@ -38,7 +36,6 @@ import { LightboxModule } from 'angular2-lightbox';
 		LightboxModule,
 		ReactiveFormsModule,
 		NgxY2PlayerModule.forRoot(),
-		// CommentsModule
 	],
 	exports: [
 		SearchComponent,
@@ -54,7 +51,6 @@ import { LightboxModule } from 'angular2-lightbox';
 		TopAlbumsComponent,
 		AlbumsComponent,
 		AlbumComponent,
-		NotFoundComponent,
 		SearchComponent,
 		PhotosComponent,
 		PreviewStationComponent,
