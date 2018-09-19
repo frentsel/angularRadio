@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { ListComponent } from './list/list.component';
-import { CitiesComponent } from './cities/cities.component';
 import { StationComponent } from './station/station.component';
 import { ArtistComponent } from './artist/artist.component';
 import { BioComponent } from './artist/bio/bio.component';
@@ -17,7 +16,7 @@ const routes: Routes = [
   { path: 'home', component: ListComponent },
   { path: 'list/:entity/:id', component: ListComponent },
   { path: 'countries', loadChildren: 'app/countries/countries.module#CountriesModule' },
-  { path: 'cities', component: CitiesComponent },
+  { path: 'cities', loadChildren: 'app/cities/cities.module#CitiesModule' },
   { path: 'genres', loadChildren: 'app/genres/genres.module#GenresModule' },
   { path: 'station/:id', component: StationComponent },
   {
