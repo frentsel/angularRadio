@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { StationComponent } from './station.component';
 import { CommentsModule } from '../components/comments/comments.module';
+import { ArtistPreviewModule } from '../components/artist-preview/artist-preview.module';
 
 const routes: Routes = [{
   path: '**',
@@ -13,7 +14,8 @@ const routes: Routes = [{
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    CommentsModule
+    CommentsModule,
+    ArtistPreviewModule
   ],
   declarations: [
     StationComponent
