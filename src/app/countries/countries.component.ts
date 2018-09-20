@@ -4,7 +4,7 @@ import { HttpAppService } from '../http-app.service';
 @Component({
   moduleId: module.id,
   templateUrl: './countries.component.html',
-  styleUrls: ['./countries.component.css']
+  styleUrls: ['./countries.component.scss']
 })
 export class CountriesComponent {
 

@@ -1,13 +1,12 @@
+import { Http } from '@angular/http';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Component, Output, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { StationService } from './station.service';
 
 @Component({
-  moduleId: module.id,
+  styleUrls: ['./station.component.scss'],
   templateUrl: './station.component.html',
-  styleUrls: ['./station.component.scss']
 })
 
 export class StationComponent implements OnInit {

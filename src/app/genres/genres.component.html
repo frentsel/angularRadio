@@ -1,6 +1,6 @@
 <h1>Genre List</h1>
-<div *ngIf="genres">
-  <a *ngFor="let item of genres" class="label-list-item" routerLink="/list/genre/{{item.genre}}">
+<ng-container *ngIf="genres">
+  <a *ngFor="let item of genres" routerLink="/list/genre/{{item.genre}}">
     {{item.genre}} - {{item.count}}
   </a>
-</div>
+</ng-container>
