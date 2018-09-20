@@ -5,7 +5,7 @@ import { Lightbox } from 'angular2-lightbox';
 
 @Component({
   templateUrl: './photos.component.html',
-  styleUrls: ['./photos.component.css']
+  styleUrls: ['./photos.component.scss']
 })
 export class PhotosComponent implements OnInit {
 

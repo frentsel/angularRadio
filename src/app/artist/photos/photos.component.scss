@@ -3,14 +3,13 @@ h1 {
   color: #358;
 }
 
-.photos__wrapper {
+.wrapper {
   margin: 15px 0;
   clear: both;
-}
-
-.photos__wrapper > h2 {
-  font-size: 20px;
-  margin-bottom: 10px;
+  > h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
 }
 
 .photos {
@@ -19,21 +18,19 @@ h1 {
   flex-wrap: wrap;
 }
 
-.photos__item {
+.item {
   flex-basis: 20%;
   border-right: 1px solid white;
   border-bottom: 1px solid white;
   display: flex;
   min-width: 140px;
   flex-grow: 1;
-}
-
-.photos__item > div {
-  width: 100%;
-}
-
-.photos__item > div > img {
-  width: 100%;
-  height: auto;
-  float: left;
+  > div {
+    width: 100%;
+    > img {
+      width: 100%;
+      height: auto;
+      float: left;
+    }
+  }
 }

@@ -1,8 +1,8 @@
-<div *ngIf="photos?.length > 0">
+<div *ngIf="photos?.length">
 	<h1>Photos of {{artist}}</h1>
-	<div class="photos__wrapper">
+	<div class="wrapper">
 		<div class="photos">
-			<div *ngFor="let photo of photos; let i = index" class="photos__item">
+			<div *ngFor="let photo of photos; let i = index" class="item">
 				<div>
 					<img [src]="photo.thumb" (click)="open(i)" alt="{{photo.caption}} photo {{i}}" />
 				</div>
