@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpAppService } from '../../http-app.service';
 
 @Component({
-  templateUrl: 'playlist.component.html',
-  styleUrls: ['playlist.component.css']
+  templateUrl: './playlist.component.html',
+  styleUrls: ['./playlist.component.css']
 })
 
 export class PlaylistComponent implements OnInit {

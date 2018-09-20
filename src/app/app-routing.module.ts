@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'genres', loadChildren: 'app/genres/genres.module#GenresModule' },
   { path: 'station/:id', loadChildren: 'app/station/station.module#StationModule' },
   {
-    path: 'artist/:artist', loadChildren: 'app/artist/artist.module#ArtistModule'
+    path: 'artist', loadChildren: 'app/artist/artist.module#ArtistModule'
   },
   { path: '**', loadChildren: 'app/notfound/notfound.module#NotFoundModule' },
 ];

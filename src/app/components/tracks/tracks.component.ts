@@ -11,7 +11,7 @@ import { NgxY2PlayerComponent, NgxY2PlayerOptions } from 'ngx-y2-player';
 
 export class TracksComponent {
 
-  @Input() tracks: Array<any>;
+  @Input() tracks: any[];
   @Input() title: string;
 
   @ViewChild('video') video: NgxY2PlayerComponent;

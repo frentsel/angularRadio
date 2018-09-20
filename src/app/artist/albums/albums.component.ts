@@ -24,8 +24,8 @@ export class AlbumsComponent implements OnInit {
 
   loadAlbums() {
 
-    this.route.parent.params.subscribe((...args) => {
-
+    this.route.parent.params.subscribe(() => {
+      
       this.artist = window.location.pathname.split('/').slice(2, 3)[0];
       const params = {
         'method': 'artist.gettopalbums',

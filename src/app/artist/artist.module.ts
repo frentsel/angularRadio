@@ -6,7 +6,7 @@ import { ArtistPreviewModule } from '../components/artist-preview/artist-preview
 import { SimilarModule } from '../components/similar/similar.module';
 
 const routes: Routes = [{
-  path: '',
+  path: ':artist',
   component: ArtistComponent,
   children: [
     { path: '', redirectTo: 'bio', pathMatch: 'full' },
@@ -14,7 +14,7 @@ const routes: Routes = [{
     { path: 'playlist', loadChildren: 'app/artist/playlist/playlist.module#PlaylistModule' },
     { path: 'albums', loadChildren: 'app/artist/albums/albums.module#AlbumsModule' },
     // { path: 'albums/:album', loadChildren: 'app/artist/albums.module#AlbumsModule' },
-    // { path: 'video', component: PlaylistComponent },
+    { path: 'video', loadChildren: 'app/artist/playlist/playlist.module#PlaylistModule' },
     { path: 'photos', loadChildren: 'app/artist/photos/photos.module#PhotosModule' },
   ]
 }];
