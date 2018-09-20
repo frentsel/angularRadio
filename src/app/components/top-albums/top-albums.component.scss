@@ -1,13 +1,14 @@
-.albums__wrapper {
+:host {
   clear: both;
   border-top: 2px dashed #dbdfe4;
   padding-top: 15px;
   padding-bottom: 15px;
   margin-top: 15px;
+  display: block;
+
   > h2 {
     font-size: 16px;
     color: #4f7197;
-    margin-bottom: 10px;
     text-align: center;
     text-transform: uppercase;
   }
@@ -20,16 +21,17 @@
   justify-content: space-between;
 }
 
-.albums__item {
+.album {
   font-size: 12px;
   background: #f9f9f9;
   border-radius: 10px;
-  padding: 10px 10px;
+  padding: 10px;
   width: 110px;
   text-align: center;
   overflow: hidden;
   box-shadow: 0 1px 3px 1px #ece7e7;
-  margin-bottom: 10px;
+  margin: 10px 3px;
+
   img {
     margin-top: 8px;
     float: left;
@@ -37,6 +39,7 @@
     border-radius: 50%;
     border: 1px solid white;
   }
+
   a {
     display: inherit;
     color: #4f7197;

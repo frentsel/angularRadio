@@ -3,8 +3,8 @@
   <div class="albums__wrapper">
     <div class="albums">
       <div *ngFor="let album of albums" class="albums__item">
-        <a routerLink="/artist/{{album.artist.name}}/albums/{{album.name}}" title="{{album.name}}">{{album.name}}</a>
-        <a routerLink="/artist/{{album.artist.name}}/albums/{{album.name}}">
+        <a routerLink="/artist/{{album.artist.name}}/album/{{album.name}}" title="{{album.name}}">{{album.name}}</a>
+        <a routerLink="/artist/{{album.artist.name}}/album/{{album.name}}">
           <img src="{{album.image[2]['#text']}}" />
         </a>
       </div>

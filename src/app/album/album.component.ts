@@ -26,10 +26,9 @@ export class AlbumComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
 
       this.title = 'Tracks';
-      const { artist } = this.route.snapshot.parent.params;
       const _params = {
         'method': 'album.getinfo',
-        'artist': artist,
+        'artist': window.location.pathname.split('/').slice(2, 3)[0],
         'album': params['album'],
         'api_key': '02ec4e9d3a6dec29749f9d0a2cf3f598',
         'lang': 'ru',
