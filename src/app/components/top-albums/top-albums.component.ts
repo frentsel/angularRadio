@@ -32,7 +32,7 @@ export class TopAlbumsComponent implements OnInit, OnChanges {
       'format': 'json'
     };
 
-    this.httpAppService.getJSON(`http://ws.audioscrobbler.com/2.0/`, params)
+    this.httpAppService.getJSON(`https://ws.audioscrobbler.com/2.0/`, params)
       .then(data => {
         this.albums = data['topalbums']['album'];
         this.filterAlbums();

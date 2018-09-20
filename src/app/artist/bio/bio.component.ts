@@ -9,7 +9,7 @@ import { HttpAppService } from '../../http-app.service';
 
 export class BioComponent implements OnInit {
 
-  url = `http://ws.audioscrobbler.com/2.0/`;
+  url = `https://ws.audioscrobbler.com/2.0/`;
   artistName: string;
   artist: any = {};
 
@@ -35,7 +35,7 @@ export class BioComponent implements OnInit {
 
   ngOnInit() {
     this.route.parent.params.subscribe((params: Params) => {
-      this.artistName = window.location.pathname.split('/').slice(2, 3)[0];
+      this.artistName = window.location.pathname.split('/').slice(-2)[0];
       this.getData();
     });
   }

@@ -35,7 +35,7 @@ export class AlbumComponent implements OnInit {
         'format': 'json',
       };
 
-      this.httpAppService.getJSON(`http://ws.audioscrobbler.com/2.0/`, _params)
+      this.httpAppService.getJSON(`https://ws.audioscrobbler.com/2.0/`, _params)
         .then(data => {
           this.album = data['album'];
           this.album['content'] = '';

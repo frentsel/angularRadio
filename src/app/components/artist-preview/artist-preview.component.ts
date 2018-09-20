@@ -41,7 +41,7 @@ export class ArtistPreviewComponent implements OnInit {
       'format': 'json'
     };
 
-    this.httpAppService.getJSON(`http://ws.audioscrobbler.com/2.0/`, params)
+    this.httpAppService.getJSON(`https://ws.audioscrobbler.com/2.0/`, params)
       .then(data => {
         this.artist = data['artist'];
         this.makeCorrectContent();

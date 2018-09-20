@@ -26,7 +26,7 @@ export class AlbumsComponent implements OnInit {
 
     this.route.parent.params.subscribe(() => {
       
-      this.artist = window.location.pathname.split('/').slice(2, 3)[0];
+      this.artist = window.location.pathname.split('/').slice(-2)[0];
       const params = {
         'method': 'artist.gettopalbums',
         'artist': this.artist,
@@ -35,7 +35,7 @@ export class AlbumsComponent implements OnInit {
         'format': 'json',
       };
 
-      this.httpAppService.getJSON(`http://ws.audioscrobbler.com/2.0/`, params)
+      this.httpAppService.getJSON(`https://ws.audioscrobbler.com/2.0/`, params)
         .then(data => {
           this.albums = data['topalbums']['album'];
           this.filterAlbums();
