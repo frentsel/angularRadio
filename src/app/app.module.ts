@@ -13,7 +13,6 @@ import { TopAlbumsComponent } from './top-albums/top-albums.component';
 import { AlbumsComponent } from './artist/albums/albums.component';
 
 import { SimilarComponent } from './similar/similar.component';
-import { SearchComponent } from './search/search.component';
 
 import { StationService } from './station/station.service';
 import { HttpAppService } from './http-app.service';
@@ -22,19 +21,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { PhotosComponent } from './artist/photos/photos.component';
 
 import { LightboxModule } from 'angular2-lightbox';
+import { SearchModule } from './components/search/search.module';
 
 @NgModule({
 	imports: [
 		BrowserModule,
+		SearchModule,
 		AppRoutingModule,
 		FormsModule,
 		HttpModule,
 		LightboxModule,
 		ReactiveFormsModule,
 		NgxY2PlayerModule.forRoot(),
-	],
-	exports: [
-		SearchComponent,
 	],
 	declarations: [
 		AppComponent,
@@ -44,7 +42,6 @@ import { LightboxModule } from 'angular2-lightbox';
 		SimilarComponent,
 		TopAlbumsComponent,
 		AlbumsComponent,
-		SearchComponent,
 		PhotosComponent,
 	],
 	providers: [
