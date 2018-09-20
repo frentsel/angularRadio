@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { ArtistComponent } from './artist.component';
 import { RouterModule, Routes } from '@angular/router';
 import { PlaylistComponent } from './playlist/playlist.component';
-import { AlbumsComponent } from './albums/albums.component';
 import { ArtistPreviewModule } from '../components/artist-preview/artist-preview.module';
 import { SimilarModule } from '../components/similar/similar.module';
 
@@ -14,8 +13,7 @@ const routes: Routes = [{
     { path: '', redirectTo: 'bio', pathMatch: 'full' },
     { path: 'bio', loadChildren: 'app/artist/bio/bio.module#BioModule' },
     { path: 'playlist', component: PlaylistComponent },
-    { path: 'albums', component: AlbumsComponent },
-    { path: 'album/:album', loadChildren: 'app/album/album.module#AlbumModule' },
+    // { path: 'albums/:album', loadChildren: 'app/artist/albums.module#AlbumsModule' },
     { path: 'video', component: PlaylistComponent },
     { path: 'photos', loadChildren: 'app/artist/photos/photos.module#PhotosModule' },
   ]
@@ -31,11 +29,9 @@ const routes: Routes = [{
   declarations: [
     ArtistComponent,
     PlaylistComponent,
-    AlbumsComponent,
   ],
   exports: [
     ArtistComponent
-  ],
-  providers: [],
+  ]
 })
 export class ArtistModule { }

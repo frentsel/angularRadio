@@ -1,21 +1,16 @@
-.inner-content {
-    padding: 20px;
-}
-
 h1 {
-    font-size: 20px;
-    color: #358;
+  font-size: 20px;
+  color: #358;
 }
-
 
 .albums__wrapper {
-    margin: 15px 0;
-    clear: both;
+  margin: 15px 0;
+  clear: both;
 }
 
 .albums__wrapper > h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
 .albums {
@@ -29,12 +24,13 @@ h1 {
   font-size: 12px;
   background: #f9f9f9;
   border-radius: 10px;
-  padding: 10px 10px;
+  padding: 10px;
   width: 110px;
   text-align: center;
   overflow: hidden;
   box-shadow: 0 1px 3px 1px #ece7e7;
   margin-bottom: 10px;
+
   img {
     margin-top: 8px;
     float: left;
@@ -42,6 +38,7 @@ h1 {
     border-radius: 50%;
     border: 1px solid white;
   }
+
   a {
     display: inherit;
     color: #4f7197;
