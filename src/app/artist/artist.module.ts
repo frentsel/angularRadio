@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ArtistComponent } from './artist.component';
 import { RouterModule, Routes } from '@angular/router';
+import { ArtistComponent } from './artist.component';
 import { ArtistPreviewModule } from '../components/artist-preview/artist-preview.module';
 import { SimilarModule } from '../components/similar/similar.module';
 
