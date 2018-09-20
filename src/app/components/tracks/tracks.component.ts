@@ -1,6 +1,6 @@
 import { Component, Input, ViewChild } from '@angular/core';
-import { HttpAppService } from '../http-app.service';
-import { StationService } from '../station/station.service';
+import { HttpAppService } from '../../http-app.service';
+import { StationService } from '../../station/station.service';
 import { NgxY2PlayerComponent, NgxY2PlayerOptions } from 'ngx-y2-player';
 
 @Component({
