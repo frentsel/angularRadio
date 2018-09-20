@@ -1,0 +1,12 @@
+<div *ngIf="albums?.length > 0" class="albums__wrapper">
+  <h2>Top 10 Albums</h2>
+  <div class="albums">
+    <div *ngFor="let album of albums" class="albums__item">
+      <a routerLink="/artist/{{album.artist.name}}/album/{{album.name}}" title="{{album.name}}">{{album.name}}</a>
+      <a routerLink="/artist/{{album.artist.name}}/album/{{album.name}}">
+        <img src="{{album.image[2]['#text']}}" />
+      </a>
+    </div>
+  </div>
+  <a routerLink="/artist/{{albums[0].artist.name}}/albums">See more</a>
+</div>

@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { ArtistComponent } from './artist/artist.component';
 import { BioComponent } from './artist/bio/bio.component';
 import { PlaylistComponent } from './artist/playlist/playlist.component';
-import { TopAlbumsComponent } from './top-albums/top-albums.component';
 import { AlbumsComponent } from './artist/albums/albums.component';
 
 import { SimilarComponent } from './similar/similar.component';
@@ -22,11 +21,13 @@ import { PhotosComponent } from './artist/photos/photos.component';
 
 import { LightboxModule } from 'angular2-lightbox';
 import { SearchModule } from './components/search/search.module';
+import { TopAlbumsModule } from './components/top-albums/top-albums.module';
 
 @NgModule({
 	imports: [
 		BrowserModule,
 		SearchModule,
+		TopAlbumsModule,
 		AppRoutingModule,
 		FormsModule,
 		HttpModule,
@@ -40,7 +41,6 @@ import { SearchModule } from './components/search/search.module';
 		BioComponent,
 		PlaylistComponent,
 		SimilarComponent,
-		TopAlbumsComponent,
 		AlbumsComponent,
 		PhotosComponent,
 	],
