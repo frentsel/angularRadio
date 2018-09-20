@@ -1,13 +1,13 @@
 <div *ngIf="photos?.length > 0">
-    <h1>Photos of {{artist}}</h1>
-    <div class="photos__wrapper">
-        <div class="photos">
-            <div *ngFor="let photo of photos; let i = index" class="photos__item">
-                <div>
-                    <img [src]="photo.thumb" (click)="open(i)" alt="{{photo.caption}} photo {{i}}" />
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- <app-comments></app-comments> -->
+	<h1>Photos of {{artist}}</h1>
+	<div class="photos__wrapper">
+		<div class="photos">
+			<div *ngFor="let photo of photos; let i = index" class="photos__item">
+				<div>
+					<img [src]="photo.thumb" (click)="open(i)" alt="{{photo.caption}} photo {{i}}" />
+				</div>
+			</div>
+		</div>
+	</div>
+	<app-comments></app-comments>
 </div>

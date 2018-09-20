@@ -4,7 +4,6 @@ import { ArtistComponent } from './artist.component';
 import { RouterModule, Routes } from '@angular/router';
 import { PlaylistComponent } from './playlist/playlist.component';
 import { AlbumsComponent } from './albums/albums.component';
-import { PhotosComponent } from './photos/photos.component';
 import { ArtistPreviewModule } from '../components/artist-preview/artist-preview.module';
 import { SimilarModule } from '../components/similar/similar.module';
 
@@ -18,7 +17,7 @@ const routes: Routes = [{
     { path: 'albums', component: AlbumsComponent },
     { path: 'album/:album', loadChildren: 'app/album/album.module#AlbumModule' },
     { path: 'video', component: PlaylistComponent },
-    { path: 'photos', component: PhotosComponent },
+    { path: 'photos', loadChildren: 'app/artist/photos/photos.module#PhotosModule' },
   ]
 }];
 
@@ -33,7 +32,6 @@ const routes: Routes = [{
     ArtistComponent,
     PlaylistComponent,
     AlbumsComponent,
-    PhotosComponent
   ],
   exports: [
     ArtistComponent

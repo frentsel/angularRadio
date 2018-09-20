@@ -1,55 +1,52 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { HttpAppService } from '../../http-app.service';
 import { Lightbox } from 'angular2-lightbox';
 
 @Component({
-    selector: 'app-photos',
-    templateUrl: './photos.component.html',
-    styleUrls: [
-        './photos.component.css'
-    ]
+  templateUrl: './photos.component.html',
+  styleUrls: ['./photos.component.css']
 })
 export class PhotosComponent implements OnInit {
 
-    photos: any[] = [];
-    artist: string;
-    uri: string = `http://localhost:80/lastfm.php`;
+  photos: any[] = [];
+  artist: string;
+  uri: string = `http://localhost:80/lastfm.php`;
 
-    constructor(
-        private lightbox: Lightbox,
-        private route: ActivatedRoute,
-        private http: HttpAppService
-    ) { }
+  constructor(
+    private lightbox: Lightbox,
+    private route: ActivatedRoute,
+    private http: HttpAppService
+  ) { }
 
-    async loadData({ artist }) {
+  async loadData({ artist }) {
 
-        this.artist = artist;
+    this.artist = artist;
 
-        const params = {
-            artist: this.artist,
-            method: 'getArtistImages',
-        };
-
-        const photos = await this.http.getJSON(this.uri, params);
-        this.buildListPhoto(photos);
+    const params = {
+      artist: this.artist,
+      method: 'getArtistImages',
     };
 
-    open(index: number): void {
-        this.lightbox.open(this.photos, index);
-    }
+    const photos = await this.http.getJSON(this.uri, params);
+    this.buildListPhoto(photos);
+  };
 
-    buildListPhoto(photos) {
-        this.photos = photos.map(img => {
-            return {
-                src: img.replace('avatar170s', '770x0'),
-                caption: this.artist,
-                thumb: img
-            }
-        });
-    }
+  open(index: number): void {
+    this.lightbox.open(this.photos, index);
+  }
 
-    ngOnInit() {
-        this.route.parent.params.subscribe(this.loadData.bind(this));
-    }
+  buildListPhoto(photos) {
+    this.photos = photos.map(img => {
+      return {
+        src: img.replace('avatar170s', '770x0'),
+        caption: this.artist,
+        thumb: img
+      }
+    });
+  }
+
+  ngOnInit() {
+    this.route.parent.params.subscribe(this.loadData.bind(this));
+  }
 }
