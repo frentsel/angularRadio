@@ -20,14 +20,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { PhotosComponent } from './artist/photos/photos.component';
 
 import { LightboxModule } from 'angular2-lightbox';
+
 import { SearchModule } from './components/search/search.module';
 import { TopAlbumsModule } from './components/top-albums/top-albums.module';
+import { ArtistPreviewModule } from './components/artist-preview/artist-preview.module';
 
 @NgModule({
 	imports: [
 		BrowserModule,
 		SearchModule,
 		TopAlbumsModule,
+		ArtistPreviewModule,
 		AppRoutingModule,
 		FormsModule,
 		HttpModule,

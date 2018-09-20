@@ -1,20 +1,18 @@
-<div class="inner-content">
-    <ul class="artist-info-controls">
-        <li routerLinkActive="active">
-            <a [routerLink]="['bio']">Bio</a>
-        </li>
-        <li routerLinkActive="active">
-            <a [routerLink]="['playlist']" class="active">Playlist</a>
-        </li>
-        <li routerLinkActive="active">
-            <a [routerLink]="['photos']">Photos</a>
-        </li>
-        <li routerLinkActive="active">
-            <a [routerLink]="['video']">Videos</a>
-        </li>
-        <li routerLinkActive="active">
-            <a [routerLink]="['albums']">Albums</a>
-        </li>
-    </ul>
-    <router-outlet></router-outlet>
-</div>
+<ul class="artist-info-controls">
+  <li routerLinkActive="active">
+    <a [routerLink]="['bio']">Bio</a>
+  </li>
+  <li routerLinkActive="active">
+    <a [routerLink]="['playlist']" class="active">Playlist</a>
+  </li>
+  <li routerLinkActive="active">
+    <a [routerLink]="['photos']">Photos</a>
+  </li>
+  <li routerLinkActive="active">
+    <a [routerLink]="['video']">Videos</a>
+  </li>
+  <li routerLinkActive="active">
+    <a [routerLink]="['albums']">Albums</a>
+  </li>
+</ul>
+<router-outlet></router-outlet>
