@@ -1,9 +1,9 @@
 <div *ngIf="album && album.artist">
-    <h2>{{album.artist}} - {{album.name}}</h2>
-    <div class="album-content">
-        <img src="{{album.image[3]['#text']}}" alt="{{album.name}}">
-        <div [innerHTML]="album.content"></div>
-        <app-tracks [tracks]="album.tracks.track" [title]="title"></app-tracks>
-    </div>
-    <!-- <app-comments></app-comments> -->
+  <h2>{{album.artist}} - {{album.name}}</h2>
+  <div class="album-content">
+    <img src="{{album.image[3]['#text']}}" alt="{{album.name}}">
+    <div [innerHTML]="album.content"></div>
+    <app-tracks [tracks]="album.tracks.track" [title]="title"></app-tracks>
+  </div>
+  <app-comments></app-comments>
 </div>

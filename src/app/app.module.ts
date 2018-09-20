@@ -11,10 +11,8 @@ import { PreviewStationComponent } from './components/preview-station/preview-st
 import { ArtistComponent } from './artist/artist.component';
 import { BioComponent } from './artist/bio/bio.component';
 import { PlaylistComponent } from './artist/playlist/playlist.component';
-import { TracksComponent } from './tracks/tracks.component';
 import { TopAlbumsComponent } from './top-albums/top-albums.component';
 import { AlbumsComponent } from './artist/albums/albums.component';
-import { AlbumComponent } from './album/album.component';
 
 import { SimilarComponent } from './similar/similar.component';
 import { SearchComponent } from './search/search.component';
@@ -47,10 +45,8 @@ import { LightboxModule } from 'angular2-lightbox';
 		BioComponent,
 		PlaylistComponent,
 		SimilarComponent,
-		TracksComponent,
 		TopAlbumsComponent,
 		AlbumsComponent,
-		AlbumComponent,
 		SearchComponent,
 		PhotosComponent,
 		PreviewStationComponent,

@@ -6,7 +6,6 @@ import { ArtistComponent } from './artist/artist.component';
 import { BioComponent } from './artist/bio/bio.component';
 import { PlaylistComponent } from './artist/playlist/playlist.component';
 import { PhotosComponent } from './artist/photos/photos.component';
-import { AlbumComponent } from './album/album.component';
 import { AlbumsComponent } from './artist/albums/albums.component';
 
 const routes: Routes = [
@@ -24,7 +23,7 @@ const routes: Routes = [
       { path: 'bio', component: BioComponent },
       { path: 'playlist', component: PlaylistComponent },
       { path: 'albums', component: AlbumsComponent },
-      { path: 'album/:album', component: AlbumComponent },
+      { path: 'album/:album', loadChildren: 'app/album/album.module#AlbumModule' },
       { path: 'video', component: PlaylistComponent },
       { path: 'photos', component: PhotosComponent },
     ]
