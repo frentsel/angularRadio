@@ -1,0 +1,14 @@
+<div class="search-form">
+  <input type="text" class="search-field" [(ngModel)]="search" (ngModelChange)="valueChange($event)" (focus)="focus = 'focus'"
+    (focusout)="focusOutHandler()" placeholder="search" />
+  <div class="search-artists {{focus}}" *ngIf="artists?.length > 0">
+    <a *ngFor="let artist of artists" class="search-artists__item" [routerLink]="['/artist/'+artist.name+'/bio']">
+      <div class="search-artists__preview">
+        <img src="{{artist.image[0]['#text']}}" alt="{{artist.name}}">
+      </div>
+      <div class="search-artists__name">
+        {{artist.name}}
+      </div>
+    </a>
+  </div>
+</div>
