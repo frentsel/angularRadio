@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ListComponent } from './list/list.component';
 import { ArtistComponent } from './artist/artist.component';
 import { BioComponent } from './artist/bio/bio.component';
 import { PlaylistComponent } from './artist/playlist/playlist.component';
@@ -10,8 +9,8 @@ import { AlbumsComponent } from './artist/albums/albums.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: ListComponent },
-  { path: 'list/:entity/:id', component: ListComponent },
+  { path: 'home', loadChildren: 'app/list/list.module#ListModule' },
+  { path: 'list/:entity/:id', loadChildren: 'app/list/list.module#ListModule' },
   { path: 'countries', loadChildren: 'app/countries/countries.module#CountriesModule' },
   { path: 'cities', loadChildren: 'app/cities/cities.module#CitiesModule' },
   { path: 'genres', loadChildren: 'app/genres/genres.module#GenresModule' },

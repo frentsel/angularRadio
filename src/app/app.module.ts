@@ -6,8 +6,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgxY2PlayerModule } from 'ngx-y2-player';
 
 import { AppComponent } from './app.component';
-import { ListComponent } from './list/list.component';
-import { PreviewStationComponent } from './components/preview-station/preview-station.component';
 import { ArtistComponent } from './artist/artist.component';
 import { BioComponent } from './artist/bio/bio.component';
 import { PlaylistComponent } from './artist/playlist/playlist.component';
@@ -40,7 +38,6 @@ import { LightboxModule } from 'angular2-lightbox';
 	],
 	declarations: [
 		AppComponent,
-		ListComponent,
 		ArtistComponent,
 		BioComponent,
 		PlaylistComponent,
@@ -49,7 +46,6 @@ import { LightboxModule } from 'angular2-lightbox';
 		AlbumsComponent,
 		SearchComponent,
 		PhotosComponent,
-		PreviewStationComponent,
 	],
 	providers: [
 		StationService,

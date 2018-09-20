@@ -9,7 +9,6 @@ const routes: Routes = [{
   component: NotFoundComponent
 }];
 
-
 @NgModule({
   imports: [
     CommonModule,
