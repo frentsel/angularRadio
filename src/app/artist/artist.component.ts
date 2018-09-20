@@ -15,9 +15,8 @@ export class ArtistComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.route.params.subscribe((params: Params) => {
+    this.route.parent.params.subscribe((params: Params) => {
       this.artist = params['artist'];
     });
-
   }
 }

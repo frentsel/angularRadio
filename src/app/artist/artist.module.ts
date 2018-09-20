@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ArtistComponent } from './artist.component';
 import { RouterModule, Routes } from '@angular/router';
-import { TopAlbumsModule } from '../components/top-albums/top-albums.module';
-import { BioComponent } from './bio/bio.component';
 import { PlaylistComponent } from './playlist/playlist.component';
 import { AlbumsComponent } from './albums/albums.component';
 import { PhotosComponent } from './photos/photos.component';
@@ -15,7 +13,7 @@ const routes: Routes = [{
   component: ArtistComponent,
   children: [
     { path: '', redirectTo: 'bio', pathMatch: 'full' },
-    { path: 'bio', component: BioComponent },
+    { path: 'bio', loadChildren: 'app/artist/bio/bio.module#BioModule' },
     { path: 'playlist', component: PlaylistComponent },
     { path: 'albums', component: AlbumsComponent },
     { path: 'album/:album', loadChildren: 'app/album/album.module#AlbumModule' },
@@ -33,7 +31,6 @@ const routes: Routes = [{
   ],
   declarations: [
     ArtistComponent,
-    BioComponent,
     PlaylistComponent,
     AlbumsComponent,
     PhotosComponent

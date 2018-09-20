@@ -1,9 +1,9 @@
 <div *ngIf="artist && artist?.name">
-    <h1>{{artist?.name}}</h1>
-    <div class="artist-content">
-        <img src="{{artist?.image[3]['#text']}}" alt="{{artist?.name}}">
-        <div [innerHTML]="artist?.content"></div>
-    </div>
-    <!-- <app-similar *ngIf="artist?.similar.artist" [similar]="artist?.similar.artist"></app-similar> -->
-    <!-- <app-comments></app-comments> -->
+  <h1>{{artist?.name}}</h1>
+  <div class="artist-content">
+    <img src="{{artist?.image[3]['#text']}}" alt="{{artist?.name}}">
+    <div [innerHTML]="artist?.content"></div>
+  </div>
+  <app-similar *ngIf="artist?.similar.artist" [similar]="artist?.similar.artist"></app-similar>
+  <app-comments></app-comments>
 </div>
