@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { StationComponent } from './station.component';
-import { CommentsModule } from '../comments/comments.module';
+import { CommentsModule } from '../components/comments/comments.module';
 
 const routes: Routes = [{
   path: '**',
