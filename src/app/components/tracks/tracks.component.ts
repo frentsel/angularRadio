@@ -52,13 +52,10 @@ export class TracksComponent {
 
   savePlayer(player) {
     this.player = player;
-    console.log('video instance', this.video);
-    console.log('player instance', player);
     this.loadAndPlay(this.tracks[this.current]);
   }
 
   onStateChange(event) {
-    console.log('player state', event.data);
     if (event.data === 0) {
       this.next();
     }

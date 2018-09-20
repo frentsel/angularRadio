@@ -12,6 +12,7 @@ const routes: Routes = [{
     { path: '', redirectTo: 'bio', pathMatch: 'full' },
     { path: 'bio', loadChildren: 'app/artist/bio/bio.module#BioModule' },
     { path: 'playlist', loadChildren: 'app/artist/playlist/playlist.module#PlaylistModule' },
+    { path: 'albums', loadChildren: 'app/artist/albums/albums.module#AlbumsModule' },
     // { path: 'albums/:album', loadChildren: 'app/artist/albums.module#AlbumsModule' },
     // { path: 'video', component: PlaylistComponent },
     { path: 'photos', loadChildren: 'app/artist/photos/photos.module#PhotosModule' },

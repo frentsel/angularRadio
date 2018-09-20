@@ -1,4 +1,4 @@
-<div *ngIf="albums?.length">
+<ng-container *ngIf="albums?.length">
   <h1>All Albums of {{artist}}</h1>
   <div class="albums__wrapper">
     <div class="albums">
@@ -11,4 +11,4 @@
     </div>
   </div>
   <app-comments></app-comments>
-</div>
+</ng-container>

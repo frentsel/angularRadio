@@ -6,7 +6,7 @@ import { AlbumsComponent } from './albums.component';
 import { CommentsModule } from '../../components/comments/comments.module';
 
 const routes: Routes = [{
-  path: ':album',
+  path: '**',
   component: AlbumsComponent
 }];
 

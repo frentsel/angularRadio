@@ -18,7 +18,7 @@ export class TopAlbumsComponent implements OnInit, OnChanges {
   filterAlbums() {
     this.albums = this.albums.filter(album => {
       return album.name !== '(null)' && album.image[2]['#text'];
-    }).slice(0, 10);
+    }).slice(0, 5);
   }
 
   loadAlbums() {

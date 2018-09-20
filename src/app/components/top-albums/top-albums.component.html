@@ -1,5 +1,5 @@
 <div *ngIf="albums?.length > 0" class="albums__wrapper">
-  <h2>Top 10 Albums</h2>
+  <h2>Top Albums</h2>
   <div class="albums">
     <div *ngFor="let album of albums" class="albums__item">
       <a routerLink="/artist/{{album.artist.name}}/albums/{{album.name}}" title="{{album.name}}">{{album.name}}</a>

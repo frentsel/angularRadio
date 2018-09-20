@@ -24,23 +24,23 @@ export class AlbumsComponent implements OnInit {
 
   loadAlbums() {
 
-    console.log('this.route.snapshot.parent.params: ', this.route.snapshot.parent.params);
-    
-    this.artist = this.route.snapshot.parent.params['artist'];
+    this.route.parent.params.subscribe((...args) => {
 
-    const params = {
-      'method': 'artist.gettopalbums',
-      'artist': this.artist,
-      'api_key': '02ec4e9d3a6dec29749f9d0a2cf3f598',
-      'limit': 50,
-      'format': 'json',
-    };
+      this.artist = window.location.pathname.split('/').slice(2, 3)[0];
+      const params = {
+        'method': 'artist.gettopalbums',
+        'artist': this.artist,
+        'api_key': '02ec4e9d3a6dec29749f9d0a2cf3f598',
+        'limit': 50,
+        'format': 'json',
+      };
 
-    this.httpAppService.getJSON(`http://ws.audioscrobbler.com/2.0/`, params)
-      .then(data => {
-        this.albums = data['topalbums']['album'];
-        this.filterAlbums();
-      });
+      this.httpAppService.getJSON(`http://ws.audioscrobbler.com/2.0/`, params)
+        .then(data => {
+          this.albums = data['topalbums']['album'];
+          this.filterAlbums();
+        });
+    });
   }
 
   ngOnInit() {
