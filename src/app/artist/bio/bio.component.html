@@ -4,6 +4,7 @@
     <img src="{{artist?.image[3]['#text']}}" alt="{{artist?.name}}">
     <div [innerHTML]="artist?.content"></div>
   </div>
+  <app-top-albums *ngIf="artist?.name" [artist]="artist?.name"></app-top-albums>
   <app-similar *ngIf="artist?.similar.artist" [similar]="artist?.similar.artist"></app-similar>
   <app-comments></app-comments>
 </div>
