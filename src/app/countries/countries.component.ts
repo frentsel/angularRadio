@@ -1,37 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpAppService } from '../http-app.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   moduleId: module.id,
   templateUrl: './countries.component.html',
   styleUrls: ['./countries.component.scss']
 })
-export class CountriesComponent {
+export class CountriesComponent implements OnInit {
 
-  countries:any[] = [];
+  countries: Observable<any>;
 
-  constructor(private http: HttpAppService) {
-    this.http.getJSON('https://frentsel.github.io/angularRadio/assets/stations.json')
-      .then(this.preparingData.bind(this));
-  }
+  constructor(private http: HttpAppService) { }
 
-  private preparingData(items) {
-
-    this.countries = items.reduce((res, station) => {
-
-      if (!res[station.country]) {
-        res[station.country] = 0;
-      }
-
-      res[station.country] += 1;
-      return res;
-    }, {});
-
-    this.countries = Object.keys(this.countries).map(country => {
-      return {
-        country,
-        count: this.countries[country]
-      };
-    });
+  ngOnInit() {
+    this.countries = this.http.getLabelsByType('country');
   }
 }

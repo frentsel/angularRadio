@@ -1,37 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpAppService } from '../http-app.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   moduleId: module.id,
   templateUrl: './cities.component.html',
   styleUrls: ['./cities.component.scss']
 })
-export class CitiesComponent {
+export class CitiesComponent implements OnInit {
 
-  cities = [];
+  cities: Observable<any>;
 
-  constructor(http: HttpAppService) {
-    http.getJSON('https://frentsel.github.io/angularRadio/assets/stations.json')
-      .then(this.preparingData.bind(this));
-  }
+  constructor(private http: HttpAppService) { }
 
-  preparingData(items) {
-
-    this.cities = items.reduce((res, station) => {
-
-      if (!res[station.city]) {
-        res[station.city] = 0;
-      }
-
-      res[station.city] += 1;
-      return res;
-    }, {});
-
-    this.cities = Object.keys(this.cities).map(city => {
-      return {
-        city,
-        count: this.cities[city]
-      };
-    });
+  ngOnInit() {
+    this.cities = this.http.getLabelsByType('city');
   }
 }

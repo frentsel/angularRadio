@@ -1,6 +1,6 @@
 <h1>Радиостанции по городам</h1>
-<div *ngIf="cities" class="labels">
-  <a *ngFor="let item of cities" routerLink="/list/city/{{item.city}}">
-    {{item.city}} - {{item.count}}
+<div class="labels">
+  <a *ngFor="let item of cities | async" routerLink="/list/city/{{item.type}}">
+    {{item.type | titlecase}} - {{item.count}}
   </a>
 </div>

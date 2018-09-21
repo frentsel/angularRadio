@@ -1,37 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpAppService } from '../http-app.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   moduleId: module.id,
   templateUrl: './genres.component.html',
   styleUrls: ['./genres.component.scss']
 })
-export class GenresComponent {
+export class GenresComponent implements OnInit {
 
-  genres: any[] = [];
+  genres: Observable<any>;
 
-  constructor(http: HttpAppService) {
-    http.getJSON('https://frentsel.github.io/angularRadio/assets/stations.json')
-      .then(this.preparingData.bind(this));
-  }
+  constructor(private http: HttpAppService) { }
 
-  private preparingData(items) {
-
-    this.genres = items.reduce((res, station) => {
-
-      if (!res[station.genre]) {
-        res[station.genre] = 0;
-      }
-
-      res[station.genre] += 1;
-      return res;
-    }, {});
-
-    this.genres = Object.keys(this.genres).map(genre => {
-      return {
-        genre,
-        count: this.genres[genre]
-      };
-    });
+  ngOnInit() {
+    this.genres = this.http.getLabelsByType('genre');
   }
 }
