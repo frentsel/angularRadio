@@ -1,36 +1,24 @@
 import { ActivatedRoute, Params } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { HttpAppService } from '../../http-app.service';
+import { LastFmService } from '../../lastfm.service';
 
 @Component({
+  styleUrls: ['./bio.component.scss'],
   templateUrl: './bio.component.html',
-  styleUrls: ['./bio.component.css']
 })
 
 export class BioComponent implements OnInit {
 
-  url = `https://ws.audioscrobbler.com/2.0/`;
   artistName: string;
-  artist: any = {};
+  artist: any;
 
   constructor(
     private route: ActivatedRoute,
-    private http: HttpAppService
+    private api: LastFmService
   ) { }
 
   scrollToTop() {
     document.getElementsByClassName('content')[0].scroll(0, 0);
-  }
-
-  makeCorrectContent() {
-
-    this.artist.content = '';
-
-    if (this.artist['bio'] && this.artist['bio']['content']) {
-      this.artist.content = this.artist['bio']['content'];
-      [this.artist.content] = this.artist.content.split('<a href="https://www.last.fm/music/');
-      this.artist.content = this.artist.content.trim().replace(/\n+/gm, `<br><br>`);
-    }
   }
 
   ngOnInit() {
@@ -40,19 +28,13 @@ export class BioComponent implements OnInit {
     });
   }
 
-  async getData() {
+  getData() {
 
-    const params = {
-      method: 'artist.getinfo',
-      artist: this.artistName,
-      api_key: '02ec4e9d3a6dec29749f9d0a2cf3f598',
-      lang: 'ru',
-      format: 'json',
-    };
-    const { artist } = await this.http.getJSON(this.url, params);
+    const params = { artist: this.artistName };
 
-    this.artist = artist;
-    this.makeCorrectContent();
-    this.scrollToTop();
+    this.api.getBio(params).subscribe((artist) => {
+      this.artist = artist;
+      this.scrollToTop();
+    });
   }
 }
