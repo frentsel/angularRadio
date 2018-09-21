@@ -1,2 +1,2 @@
-<app-tracks *ngIf="tracks?.length" [tracks]="tracks" [title]="title"></app-tracks>
+<app-tracks [tracks]="tracks | async" [title]="title"></app-tracks>
 <app-comments></app-comments>

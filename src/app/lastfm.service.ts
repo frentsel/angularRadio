@@ -21,7 +21,7 @@ export class LastFmService {
     const search = new URLSearchParams();
 
     Object.keys(params).map(key => {
-      search.set(key, params[key]);
+      search.set(key, decodeURI(params[key]));
     });
 
     return this.http.get(`https://ws.audioscrobbler.com/2.0/`, { search })
@@ -67,5 +67,18 @@ export class LastFmService {
         artist.content = artist.content.trim().replace(/\n+/gm, `<br><br>`);
         return artist;
       });
+  }
+
+  getTracks(_params): Observable<any> {
+
+    const params = Object.assign({ 
+      method: 'artist.getTopTracks',
+      autocorrect: 1,
+      page: 1,
+      limit: 50
+    }, _params);
+
+    return this._fetch(params)
+      .map((data: any) => data.toptracks.track);
   }
 }
