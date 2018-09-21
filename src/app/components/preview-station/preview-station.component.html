@@ -1,7 +1,7 @@
 <a [routerLink]="'/station/'+item?.id">
-  <div class="title">{{item?.title}}</div>
+  <div class="title">{{item?.title | titlecase}}</div>
   <div class="content">
     <img src="https://frentsel.github.io/radio.react/images/{{item?.img}}">
-    <span>{{item?.genre}}</span>
+    <span>{{item?.genre | titlecase}}</span>
   </div>
 </a>

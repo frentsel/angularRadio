@@ -9,13 +9,19 @@ h1 {
   color: #358;
 }
 
+.labels {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 a {
   text-decoration: none;
-  background: #509895;
+  background: #f05f70;
   color: white;
-  padding: 4px 8px;
-  margin: 0 5px 5px 0;
-  display: inline-block;
-  border-radius: 3px;
-  font-size: 14px;
+  padding: 6px 10px;
+  margin: 3px;
+  border-radius: 2px;
+  font-size: 13px;
+  display: block;
+  white-space: nowrap;
 }

@@ -9,12 +9,12 @@ h1 {
   color: #358;
 }
 
-.list-station {
+.stations {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin: 10px 3px;
+  margin: 10px 0;
 }
 
 preview-station {

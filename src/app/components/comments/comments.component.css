@@ -1,6 +1,4 @@
-#disqus_thread {
+:host {
   clear: both;
-  margin-top: 40px;
-  border-top: 2px dashed #dbdfe4;
   padding-top: 10px;
 }

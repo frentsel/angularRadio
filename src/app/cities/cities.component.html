@@ -1,6 +1,6 @@
-<h1>City List</h1>
-<ng-container *ngIf="cities">
+<h1>Радиостанции по городам</h1>
+<div *ngIf="cities" class="labels">
   <a *ngFor="let item of cities" routerLink="/list/city/{{item.city}}">
     {{item.city}} - {{item.count}}
   </a>
-</ng-container>
+</div>
