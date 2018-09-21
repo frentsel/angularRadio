@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, URLSearchParams } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
 
@@ -8,7 +8,7 @@ export class HttpAppService {
 
   promise;
 
-  constructor(private http: Http) { }
+  constructor(private http: HttpClient) { }
 
   toggleLoader(state) {
     const method: string = state ? 'add' : 'remove';
@@ -19,8 +19,7 @@ export class HttpAppService {
 
     return this.http.get('https://frentsel.github.io/angularRadio/assets/stations.json')
       .pipe(
-        map((res) => res.json()),
-        map((items) => {
+        map((items: any[]) => {
 
         const data = items.reduce((res, item) => {
 
@@ -43,19 +42,18 @@ export class HttpAppService {
 
   getJSON(url, params = {}) {
 
-    const search = new URLSearchParams();
+    const search:any = {};
     const toggleLoader = this.toggleLoader.bind(null, false);
 
     if (params) {
       Object.keys(params).map(key => {
-        search.set(key, params[key]);
+        search[key]= params[key];
       });
     }
 
     this.toggleLoader(true);
 
-    this.promise = this.http.get(url, { search })
-      .pipe(map(res => res.json()))
+    this.promise = this.http.get(url, { params: search })
       .toPromise();
 
     this.promise

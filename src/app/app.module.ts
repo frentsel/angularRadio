@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { SearchModule } from './components/search/search.module';
@@ -13,7 +13,7 @@ import { LastFmService } from './lastfm.service';
 		BrowserModule,
 		SearchModule,
 		AppRoutingModule,
-		HttpModule
+		HttpClientModule
 	],
 	declarations: [
 		AppComponent,

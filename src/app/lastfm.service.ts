@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, URLSearchParams, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
@@ -12,19 +12,18 @@ export class LastFmService {
     format: 'json',
   }
 
-  constructor(private http: Http) { }
+  constructor(private http: HttpClient) { }
 
   private _fetch(_params): Observable<any> {
 
     const params = Object.assign({}, _params, this._config);
-    const search = new URLSearchParams();
+    const search:any = {};
 
     Object.keys(params).map(key => {
-      search.set(key, decodeURI(params[key]));
+      search[key] = decodeURI(params[key]);
     });
 
-    return this.http.get(`https://ws.audioscrobbler.com/2.0/`, { search })
-      .pipe(map((res: Response) => res.json()));
+    return this.http.get(`https://ws.audioscrobbler.com/2.0/`, { params: search });
   }
 
   getAlbum(_params): Observable<any> {
@@ -32,16 +31,16 @@ export class LastFmService {
     const params = Object.assign({ method: 'album.getinfo' }, _params);
 
     return this._fetch(params)
-    .pipe(
-      map((data: any) => data['album']),
-      map((album: any) => {
-        album.content = '';
-        if (album.wiki && album.wiki.content) {
-          album.content = album.wiki.content.replace(/\n+/gm, `<br><br>`);
-        }
-        return album;
-      })
-    );
+      .pipe(
+        map((data: any) => data['album']),
+        map((album: any) => {
+          album.content = '';
+          if (album.wiki && album.wiki.content) {
+            album.content = album.wiki.content.replace(/\n+/gm, `<br><br>`);
+          }
+          return album;
+        })
+      );
   }
 
   getAlbums(_params): Observable<any> {
@@ -49,14 +48,14 @@ export class LastFmService {
     const params = Object.assign({ method: 'artist.gettopalbums' }, _params);
 
     return this._fetch(params)
-    .pipe(
-      map((data: any) => data['topalbums']['album']),
-      map((albums: any) => {
-        return albums.filter((album: any) => {
-          return album.name !== '(null)' && album['image']['2']['#text']
-        });
-      })
-    );
+      .pipe(
+        map((data: any) => data['topalbums']['album']),
+        map((albums: any) => {
+          return albums.filter((album: any) => {
+            return album.name !== '(null)' && album['image']['2']['#text']
+          });
+        })
+      );
   }
 
   getBio(_params): Observable<any> {

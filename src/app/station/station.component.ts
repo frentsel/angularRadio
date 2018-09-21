@@ -1,4 +1,4 @@
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Component, Output, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
@@ -17,8 +17,11 @@ export class StationComponent implements OnInit {
 
   @Output() artistName: string;
 
-  constructor(private activatedRoute: ActivatedRoute, private http: Http, private stationService: StationService) {
-  }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private http: HttpClient,
+    private stationService: StationService
+  ) { }
 
   ngOnDestroy() {
     clearTimeout(this.timerId);
@@ -28,7 +31,6 @@ export class StationComponent implements OnInit {
   loadMeta() {
 
     this.http.get(`http://localhost:80/meta.php?id=${this.id}`)
-      .pipe(map(res => res.json()))
       .subscribe(data => {
         this.artistName = data['track'].split(' -').shift();
       });
@@ -41,7 +43,6 @@ export class StationComponent implements OnInit {
     this.activatedRoute.params.subscribe((params: Params) => {
 
       this.http.get('https://frentsel.github.io/angularRadio/assets/stations.json')
-        .pipe(map(res => res.json()))
         .subscribe(data => {
           this.station = data[this.id];
           this.stationService.emitChange(data[this.id].radio);
