@@ -1,10 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { HttpAppService } from '../../http-app.service';
 
 @Component({
   selector: 'app-artist-preview',
   templateUrl: 'artist-preview.component.html',
-  styleUrls: ['artist-preview.component.scss']
+  styleUrls: ['artist-preview.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class ArtistPreviewComponent implements OnInit {

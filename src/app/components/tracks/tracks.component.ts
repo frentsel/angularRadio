@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { HttpAppService } from '../../http-app.service';
 import { StationService } from '../../station/station.service';
 import { NgxY2PlayerComponent, NgxY2PlayerOptions } from 'ngx-y2-player';
@@ -6,7 +6,8 @@ import { NgxY2PlayerComponent, NgxY2PlayerOptions } from 'ngx-y2-player';
 @Component({
   selector: 'app-tracks',
   templateUrl: './tracks.component.html',
-  styleUrls: ['./tracks.component.scss']
+  styleUrls: ['./tracks.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class TracksComponent {

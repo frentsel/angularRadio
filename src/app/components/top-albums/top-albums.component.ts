@@ -1,10 +1,11 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, ChangeDetectionStrategy } from '@angular/core';
 import { HttpAppService } from '../../http-app.service';
 
 @Component({
   selector: 'app-top-albums',
   templateUrl: './top-albums.component.html',
-  styleUrls: ['./top-albums.component.scss']
+  styleUrls: ['./top-albums.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class TopAlbumsComponent implements OnInit, OnChanges {
