@@ -1,6 +1,6 @@
 import { ActivatedRoute, Params } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { HttpAppService } from '../http-app.service';
+import { LastFmService } from '../lastfm.service';
 
 @Component({
   templateUrl: './album.component.html',
@@ -9,12 +9,12 @@ import { HttpAppService } from '../http-app.service';
 
 export class AlbumComponent implements OnInit {
 
-  title: string;
+  title: string = 'Tracks';
   album: { [key: string]: any; };
 
   constructor(
     private route: ActivatedRoute,
-    private httpAppService: HttpAppService
+    private api: LastFmService
   ) { }
 
   scrollToTop() {
@@ -25,25 +25,15 @@ export class AlbumComponent implements OnInit {
 
     this.route.params.subscribe((params: Params) => {
 
-      this.title = 'Tracks';
       const _params = {
-        'method': 'album.getinfo',
-        'artist': window.location.pathname.split('/').slice(2, 3)[0],
-        'album': params['album'],
-        'api_key': '02ec4e9d3a6dec29749f9d0a2cf3f598',
-        'lang': 'ru',
-        'format': 'json',
+        artist: window.location.pathname.split('/').slice(2, 3)[0],
+        album: params['album'],
       };
 
-      this.httpAppService.getJSON(`https://ws.audioscrobbler.com/2.0/`, _params)
-        .then(data => {
-          this.album = data['album'];
-          this.album['content'] = '';
-          if (this.album['wiki'] && this.album['wiki']['content']) {
-            this.album['content'] = this.album['wiki']['content'].replace(/\n+/gm, `<br><br>`);
-          }
-          this.scrollToTop();
-        });
+      this.api.getAlbum(_params).subscribe((album) => {
+        this.album = album;
+        this.scrollToTop();
+      });
     });
   }
 }

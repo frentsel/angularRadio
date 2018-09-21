@@ -1,6 +1,7 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { HttpAppService } from '../../http-app.service';
+import { LastFmService } from '../../lastfm.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   templateUrl: './albums.component.html',
@@ -9,37 +10,25 @@ import { HttpAppService } from '../../http-app.service';
 
 export class AlbumsComponent implements OnInit {
 
-  albums: any[];
+  albums: Observable<any[]>;
   artist: string;
 
-  constructor(private route: ActivatedRoute,
-    private httpAppService: HttpAppService) {
-  }
-
-  filterAlbums() {
-    this.albums = this.albums.filter(album => {
-      return album.name !== '(null)' && album.image[2]['#text'];
-    });
+  constructor(
+    private route: ActivatedRoute,
+    private api: LastFmService) {
   }
 
   loadAlbums() {
 
     this.route.parent.params.subscribe(() => {
-      
+
       this.artist = window.location.pathname.split('/').slice(-2)[0];
       const params = {
-        'method': 'artist.gettopalbums',
-        'artist': this.artist,
-        'api_key': '02ec4e9d3a6dec29749f9d0a2cf3f598',
-        'limit': 50,
-        'format': 'json',
+        artist: this.artist,
+        limit: 50,
       };
 
-      this.httpAppService.getJSON(`https://ws.audioscrobbler.com/2.0/`, params)
-        .then(data => {
-          this.albums = data['topalbums']['album'];
-          this.filterAlbums();
-        });
+      this.albums = this.api.getAlbums(params);
     });
   }
 

@@ -2,10 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 
-import { AppComponent } from './app.component';
-import { StationService } from './station/station.service';
 import { AppRoutingModule } from './app-routing.module';
 import { SearchModule } from './components/search/search.module';
+import { AppComponent } from './app.component';
+import { StationService } from './station/station.service';
+import { LastFmService } from './lastfm.service';
 
 @NgModule({
 	imports: [
@@ -19,6 +20,7 @@ import { SearchModule } from './components/search/search.module';
 	],
 	providers: [
 		StationService,
+		LastFmService
 	],
 	bootstrap: [
 		AppComponent,
