@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, URLSearchParams, Response } from '@angular/http';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/filter';
-import { Observable } from 'rxjs/Observable';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class LastFmService {
@@ -25,7 +24,7 @@ export class LastFmService {
     });
 
     return this.http.get(`https://ws.audioscrobbler.com/2.0/`, { search })
-      .map((res: Response) => res.json());
+      .pipe(map((res: Response) => res.json()));
   }
 
   getAlbum(_params): Observable<any> {
@@ -33,14 +32,16 @@ export class LastFmService {
     const params = Object.assign({ method: 'album.getinfo' }, _params);
 
     return this._fetch(params)
-      .map((data: any) => data['album'])
-      .map((album: any) => {
+    .pipe(
+      map((data: any) => data['album']),
+      map((album: any) => {
         album.content = '';
         if (album.wiki && album.wiki.content) {
           album.content = album.wiki.content.replace(/\n+/gm, `<br><br>`);
         }
         return album;
-      });
+      })
+    );
   }
 
   getAlbums(_params): Observable<any> {
@@ -48,12 +49,14 @@ export class LastFmService {
     const params = Object.assign({ method: 'artist.gettopalbums' }, _params);
 
     return this._fetch(params)
-      .map((data: any) => data['topalbums']['album'])
-      .map((albums: any) => {
+    .pipe(
+      map((data: any) => data['topalbums']['album']),
+      map((albums: any) => {
         return albums.filter((album: any) => {
           return album.name !== '(null)' && album['image']['2']['#text']
         });
-      });
+      })
+    );
   }
 
   getBio(_params): Observable<any> {
@@ -61,17 +64,19 @@ export class LastFmService {
     const params = Object.assign({ method: 'artist.getinfo' }, _params);
 
     return this._fetch(params)
-      .map((data: any) => data.artist)
-      .map((artist: any) => {
-        [artist.content] = artist.bio.content.split('<a href="https://www.last.fm/music/');
-        artist.content = artist.content.trim().replace(/\n+/gm, `<br><br>`);
-        return artist;
-      });
+      .pipe(
+        map((data: any) => data.artist),
+        map((artist: any) => {
+          [artist.content] = artist.bio.content.split('<a href="https://www.last.fm/music/');
+          artist.content = artist.content.trim().replace(/\n+/gm, `<br><br>`);
+          return artist;
+        })
+      );
   }
 
   getTracks(_params): Observable<any> {
 
-    const params = Object.assign({ 
+    const params = Object.assign({
       method: 'artist.getTopTracks',
       autocorrect: 1,
       page: 1,
@@ -79,6 +84,6 @@ export class LastFmService {
     }, _params);
 
     return this._fetch(params)
-      .map((data: any) => data.toptracks.track);
+      .pipe(map((data: any) => data.toptracks.track));
   }
 }

@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
 @NgModule({
   imports: [
     CommonModule,
-    NgxY2PlayerModule.forRoot()
+    NgxY2PlayerModule
   ],
   declarations: [
     TracksComponent

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, URLSearchParams } from '@angular/http';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/toPromise';
+import { map } from 'rxjs/operators';
+
 
 @Injectable()
 export class HttpAppService {
@@ -18,8 +18,9 @@ export class HttpAppService {
   getLabelsByType(key) {
 
     return this.http.get('https://frentsel.github.io/angularRadio/assets/stations.json')
-      .map((res) => res.json())
-      .map((items) => {
+      .pipe(
+        map((res) => res.json()),
+        map((items) => {
 
         const data = items.reduce((res, item) => {
 
@@ -37,7 +38,7 @@ export class HttpAppService {
             count: data[type]
           }
         });
-      });
+      }));
   }
 
   getJSON(url, params = {}) {
@@ -54,7 +55,7 @@ export class HttpAppService {
     this.toggleLoader(true);
 
     this.promise = this.http.get(url, { search })
-      .map(res => res.json())
+      .pipe(map(res => res.json()))
       .toPromise();
 
     this.promise
