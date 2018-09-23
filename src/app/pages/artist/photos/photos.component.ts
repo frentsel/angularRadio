@@ -4,33 +4,20 @@ import { HttpAppService } from '../../../services/http-app.service';
 import { Lightbox } from 'angular2-lightbox';
 
 @Component({
+  styleUrls: ['./photos.component.scss'],
   templateUrl: './photos.component.html',
-  styleUrls: ['./photos.component.scss']
 })
 export class PhotosComponent implements OnInit {
 
   photos: any[] = [];
   artist: string;
-  uri: string = `http://localhost:80/lastfm.php`;
+  uri: string = `http://localhost:80/dashboard/lastfm.php`;
 
   constructor(
     private lightbox: Lightbox,
     private route: ActivatedRoute,
     private http: HttpAppService
   ) { }
-
-  async loadData({ artist }) {
-
-    this.artist = artist;
-
-    const params = {
-      artist: this.artist,
-      method: 'getArtistImages',
-    };
-
-    const photos = await this.http.getJSON(this.uri, params);
-    this.buildListPhoto(photos);
-  };
 
   open(index: number): void {
     this.lightbox.open(this.photos, index);
@@ -47,6 +34,17 @@ export class PhotosComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.parent.params.subscribe(this.loadData.bind(this));
+    this.route.parent.params.subscribe(() => {
+      this.artist = window.location.pathname.split('/').slice(-2)[0];
+      
+      const params = {
+        artist: this.artist,
+        method: 'getArtistImages',
+      };
+  
+      this.http.getJSON(this.uri, params).then((photos) => {
+        this.buildListPhoto(photos);
+      });
+    });
   }
 }
