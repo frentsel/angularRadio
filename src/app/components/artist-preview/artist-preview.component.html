@@ -1,4 +1,4 @@
-<div *ngIf="artist && artist.name" class="artist-preview">
+<div *ngIf="artist$ | async; let artist" class="artist-preview">
   <div class="artist-preview__image">
     <a routerLink="/artist/{{artist.name}}/bio">
       <img [src]="artist.image[2]['#text']" [alt]="artist.name">
@@ -13,4 +13,4 @@
   </div>
 </div>
 <app-top-albums *ngIf="artistName" [artist]="artistName"></app-top-albums>
-<app-similar *ngIf="artist && artist.similar && artist.similar.artist" [similar]="artist.similar.artist"></app-similar>
+<app-similar *ngIf="artist$ | async; let artist" [similar]="artist.similar.artist"></app-similar>

@@ -29,7 +29,7 @@ export class StationComponent implements OnInit {
 
   loadMeta() {
 
-    this.http.get(`http://localhost:80/meta.php?id=${this.id}`)
+    this.http.get(`http://localhost:80/dashboard/meta.php?id=${this.id}`)
       .subscribe(data => {
         this.artistName = data['track'].split(' -').shift();
       });

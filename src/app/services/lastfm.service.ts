@@ -70,6 +70,7 @@ export class LastFmService {
         map((artist: any) => {
           [artist.content] = artist.bio.content.split('<a href="https://www.last.fm/music/');
           artist.content = artist.content.trim().replace(/\n+/gm, `<br><br>`);
+          artist.bio.summary = artist.bio.summary.trim().replace(/\n+/gm, `<br><br>`);
           return artist;
         })
       );
