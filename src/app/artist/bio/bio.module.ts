@@ -4,7 +4,6 @@ import { CommentsModule } from '../../components/comments/comments.module';
 import { SimilarModule } from '../../components/similar/similar.module';
 import { BioComponent } from './bio.component';
 import { Routes, RouterModule } from '@angular/router';
-import { HttpAppService } from '../../http-app.service';
 import { TopAlbumsModule } from '../../components/top-albums/top-albums.module';
 
 const routes: Routes = [{
@@ -23,8 +22,6 @@ const routes: Routes = [{
   declarations: [
     BioComponent
   ],
-  providers: [
-    HttpAppService
-  ]
+  providers: []
 })
 export class BioModule { }

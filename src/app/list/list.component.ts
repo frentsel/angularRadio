@@ -1,6 +1,6 @@
 import { ActivatedRoute, Params } from '@angular/router';
 import { Component } from '@angular/core';
-import { HttpAppService } from '../http-app.service';
+import { HttpAppService } from '../services/http-app.service';
 
 @Component({
   templateUrl: 'list.component.html',

@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { HttpAppService } from '../../http-app.service';
 import { CommonModule } from '@angular/common';
 import { SearchComponent } from './search.component';
 import { RouterModule } from '@angular/router';
@@ -17,9 +16,7 @@ import { FormsModule } from '@angular/forms';
   exports: [
     SearchComponent
   ],
-  providers: [
-    HttpAppService
-  ],
+  providers: [],
 })
 
 export class SearchModule { }

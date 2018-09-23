@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Component, Output, OnInit } from '@angular/core';
-import { map } from 'rxjs/operators';
-import { StationService } from './station.service';
+import { StationService } from '../services/station.service';
 
 @Component({
   styleUrls: ['./station.component.scss'],

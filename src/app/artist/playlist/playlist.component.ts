@@ -1,6 +1,6 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { LastFmService } from '../../lastfm.service';
+import { LastFmService } from '../../services/lastfm.service';
 import { Observable } from 'rxjs';
 
 @Component({

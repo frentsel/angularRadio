@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HttpAppService } from '../../http-app.service';
+import { HttpAppService } from '../../services/http-app.service';
 import { Lightbox } from 'angular2-lightbox';
 
 @Component({

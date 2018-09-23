@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpAppService } from '../../http-app.service';
+import { HttpAppService } from '../../services/http-app.service';
 
 @Component({
   selector: 'app-search',

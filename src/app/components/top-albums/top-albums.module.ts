@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { HttpAppService } from '../../http-app.service';
 import { CommonModule } from '@angular/common';
 import { TopAlbumsComponent } from './top-albums.component';
 import { RouterModule } from '@angular/router';
@@ -15,9 +14,7 @@ import { RouterModule } from '@angular/router';
   exports: [
     TopAlbumsComponent
   ],
-  providers: [
-    HttpAppService
-  ],
+  providers: [],
 })
 
 export class TopAlbumsModule { }
