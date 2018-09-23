@@ -10,12 +10,12 @@ const routes: Routes = [{
   component: ArtistComponent,
   children: [
     { path: '', redirectTo: 'bio', pathMatch: 'full' },
-    { path: 'bio', loadChildren: 'app/artist/bio/bio.module#BioModule' },
-    { path: 'playlist', loadChildren: 'app/artist/playlist/playlist.module#PlaylistModule' },
-    { path: 'albums', loadChildren: 'app/artist/albums/albums.module#AlbumsModule' },
-    { path: 'album/:album', loadChildren: 'app/album/album.module#AlbumModule' },
-    { path: 'video', loadChildren: 'app/artist/playlist/playlist.module#PlaylistModule' },
-    { path: 'photos', loadChildren: 'app/artist/photos/photos.module#PhotosModule' },
+    { path: 'bio', loadChildren: 'app/pages/artist/bio/bio.module#BioModule' },
+    { path: 'playlist', loadChildren: 'app/pages/artist/playlist/playlist.module#PlaylistModule' },
+    { path: 'albums', loadChildren: 'app/pages/artist/albums/albums.module#AlbumsModule' },
+    { path: 'album/:album', loadChildren: 'app/pages/album/album.module#AlbumModule' },
+    { path: 'video', loadChildren: 'app/pages/artist/playlist/playlist.module#PlaylistModule' },
+    { path: 'photos', loadChildren: 'app/pages/artist/photos/photos.module#PhotosModule' },
   ]
 }];
 
