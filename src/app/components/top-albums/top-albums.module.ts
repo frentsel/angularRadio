@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TopAlbumsComponent } from './top-albums.component';
 import { RouterModule } from '@angular/router';
+import { TopAlbumsComponent } from './top-albums.component';
 
 @NgModule({
   imports: [

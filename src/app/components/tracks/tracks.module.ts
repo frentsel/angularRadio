@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { NgxY2PlayerModule } from 'ngx-y2-player';
 import { TracksComponent } from './tracks.component';
-import { CommonModule } from '@angular/common';
 
 @NgModule({
   imports: [
