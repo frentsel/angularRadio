@@ -1,5 +1,5 @@
-<ng-container *ngIf="albums?.length">
-  <h2>Top Albums</h2>
+<h2>Top Albums</h2>
+<ng-container *ngIf="albums$ | async; let albums">
   <div class="albums">
     <div *ngFor="let album of albums" class="album">
       <a routerLink="/artist/{{album.artist.name}}/album/{{album.name}}" title="{{album.name}}">{{album.name}}</a>
