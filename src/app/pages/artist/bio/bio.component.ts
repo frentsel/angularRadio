@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { LastFmService } from '../../../services/lastfm.service';
+import { Observable } from 'rxjs';
 
 @Component({
   styleUrls: ['./bio.component.scss'],
@@ -10,31 +11,29 @@ import { LastFmService } from '../../../services/lastfm.service';
 export class BioComponent implements OnInit {
 
   artistName: string;
-  artist: any;
+  artist$: Observable<any>;
 
   constructor(
     private route: ActivatedRoute,
     private api: LastFmService
   ) { }
 
-  scrollToTop() {
+  scrollToTop(): void {
     document.getElementsByClassName('content')[0].scroll(0, 0);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.route.parent.params.subscribe((params: Params) => {
-      this.artistName = window.location.pathname.split('/').slice(-2)[0];
+      this.artistName = params.artist;
       this.getData();
     });
   }
 
-  getData() {
+  async getData(): Promise<any> {
 
     const params = { artist: this.artistName };
 
-    this.api.getBio(params).subscribe((artist) => {
-      this.artist = artist;
-      this.scrollToTop();
-    });
+    this.artist$ = await this.api.getBio(params);
+    this.scrollToTop();
   }
 }
