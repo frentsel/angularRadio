@@ -1,12 +1,10 @@
-<h1>{{artist}}: Albums</h1>
-<div class="albums__wrapper">
-  <div class="albums">
-    <div *ngFor="let album of albums | async" class="albums__item">
-      <a routerLink="/artist/{{album.artist.name}}/album/{{album.name}}" title="{{album.name}}">{{album.name}}</a>
-      <a routerLink="/artist/{{album.artist.name}}/album/{{album.name}}">
-        <img src="{{album.image[2]['#text']}}" />
-      </a>
-    </div>
+<h1>{{artistName}}: Albums</h1>
+<div class="albums">
+  <div *ngFor="let album of albums$ | async" class="album">
+    <a routerLink="/artist/{{album.artist.name}}/album/{{album.name}}" title="{{album.name}}">{{album.name}}</a>
+    <a routerLink="/artist/{{album.artist.name}}/album/{{album.name}}">
+      <img src="{{album.image[2]['#text']}}" />
+    </a>
   </div>
 </div>
 <app-comments></app-comments>

@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 
 export class AlbumsComponent implements OnInit {
 
-  albums: Observable<any[]>;
+  albums$: Observable<any[]>;
   artist: string;
 
   constructor(
@@ -28,7 +28,7 @@ export class AlbumsComponent implements OnInit {
         limit: 50,
       };
 
-      this.albums = this.api.getAlbums(params);
+      this.albums$ = this.api.getAlbums(params);
     });
   }
 
