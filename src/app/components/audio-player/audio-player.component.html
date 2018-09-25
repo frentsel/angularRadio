@@ -1,0 +1,13 @@
+<div class="controls">
+  <div (click)="play()" *ngIf="!isPlay">Play</div>
+  <div (click)="pause()" *ngIf="isPlay">Pause</div>
+  <div class="visualization">
+    <div class="canvas"></div>
+    <div id="fps"></div>
+  </div>
+  <div>{{ currentTime }}</div>
+</div>
+
+<audio [src]="src" #audio controls autoplay>
+  <ng-content></ng-content>
+</audio>

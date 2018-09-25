@@ -18,7 +18,7 @@
   <div class="content">
     <router-outlet></router-outlet>
   </div>
-  <div class="audio-player">
-    <audio [src]="src" controls autoplay></audio>
-  </div>
+  <app-audio-player [src]="src">
+    Your browser does not support the video tag.
+  </app-audio-player>
 </div>
