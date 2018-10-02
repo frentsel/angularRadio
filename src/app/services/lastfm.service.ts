@@ -19,7 +19,7 @@ export class LastFmService {
   private _fetch(_params): Observable<any> {
 
     const params = Object.assign({}, _params, this._config);
-    const search:any = {};
+    const search: any = {};
 
     Object.keys(params).map(key => {
       search[key] = decodeURI(params[key]);
@@ -87,5 +87,20 @@ export class LastFmService {
 
     return this._fetch(params)
       .pipe(map((data: any) => data.toptracks.track));
+  }
+
+  searchArtist(_params): Observable<any> {
+
+    const params = Object.assign({
+      method: 'artist.search',
+      limit: 20
+    }, _params);
+
+    return this._fetch(params)
+      .pipe(
+        map(({ results }: any) => results),
+        map(({ artistmatches }: any) => artistmatches),
+        map(({ artist }: any) => artist)
+      );
   }
 }

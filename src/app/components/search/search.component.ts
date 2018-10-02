@@ -1,37 +1,35 @@
 import { Component } from '@angular/core';
-import { HttpAppService } from '../../services/http-app.service';
+import { LastFmService } from '../../services/lastfm.service';
+import { Observable, from, interval, zip, of, Subject, fromEvent } from 'rxjs';
+import { sample, delay, debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-search',
+  styleUrls: ['./search.component.scss'],
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
 })
 
 export class SearchComponent {
 
-  search: string;
-  focus: string;
-  url: string = `https://ws.audioscrobbler.com/2.0/`;
-  artists: Array<any>;
+  search: string = '';
+  focus: string = null;
+  onSearch = new Subject<any>();
+  artists$: Observable<any[]>;
 
-  constructor(private httpAppService: HttpAppService) {
+  constructor(private api: LastFmService) {
+
+    this.onSearch
+      .pipe(
+        map((event) => event.target.value),
+        debounceTime(250),
+        distinctUntilChanged()
+      )
+      .subscribe((artist) => {
+        this.artists$ = this.api.searchArtist({ artist });
+      });
   }
 
-  focusOutHandler() {
-    setTimeout(() => this.focus = '', 500);
-  }
-
-  async valueChange(artist) {
-
-    const params = {
-      artist,
-      method: 'artist.search',
-      api_key: '02ec4e9d3a6dec29749f9d0a2cf3f598',
-      lang: 'ru',
-      format: 'json',
-    };
-
-    const artists = await this.httpAppService.getJSON(this.url, params)
-    this.artists = artists['results']['artistmatches']['artist'];
+  blurHandler(): void {
+    setTimeout(() => this.focus = null, 100);
   }
 }
