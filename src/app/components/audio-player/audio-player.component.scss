@@ -24,7 +24,9 @@
 .visualization {
   position: relative;
   flex-grow: 1;
-  .canvas {
+  height: 100%;
+
+  #canvas {
     position: absolute;
     left: 0;
     top: 0;

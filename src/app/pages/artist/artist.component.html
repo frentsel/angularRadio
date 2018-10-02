@@ -1,18 +1,18 @@
 <ul class="controls">
   <li routerLinkActive="active">
-    <a [routerLink]="['bio']">Bio</a>
+    <a [routerLink]="[artist, 'bio']">Биография</a>
   </li>
   <li routerLinkActive="active">
-    <a [routerLink]="['playlist']" class="active">Playlist</a>
+    <a [routerLink]="[artist, 'playlist']" class="active">Плейлист</a>
   </li>
   <li routerLinkActive="active">
-    <a [routerLink]="['photos']">Photos</a>
+    <a [routerLink]="[artist, 'photos']">Фото</a>
   </li>
   <li routerLinkActive="active">
-    <a [routerLink]="['video']">Videos</a>
+    <a [routerLink]="[artist, 'video']">Видео</a>
   </li>
   <li routerLinkActive="active">
-    <a [routerLink]="['albums']">Albums</a>
+    <a [routerLink]="[artist, 'albums']">Альбомы</a>
   </li>
 </ul>
 <router-outlet></router-outlet>

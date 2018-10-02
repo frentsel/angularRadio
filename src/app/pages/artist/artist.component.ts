@@ -1,8 +1,19 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
+  styleUrls: ['./artist.component.scss'],
   templateUrl: './artist.component.html',
-  styleUrls: ['./artist.component.scss']
 })
 
-export class ArtistComponent { }
+export class ArtistComponent {
+
+  public artist: string = null;
+
+  constructor(private route: ActivatedRoute) {
+    this.route.parent.params.subscribe(() => {
+      const artist = window.location.pathname.split('/').slice(-2)[0];
+      this.artist = decodeURI(artist);
+    });
+  }
+}

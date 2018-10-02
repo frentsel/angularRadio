@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { LastFmService } from '../../../services/lastfm.service';
 import { Observable } from 'rxjs';
 
@@ -23,8 +23,8 @@ export class BioComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.parent.params.subscribe((params: Params) => {
-      this.artistName = params.artist;
+    this.route.parent.params.subscribe(({ artist }) => {
+      this.artistName = artist;
       this.getData();
     });
   }

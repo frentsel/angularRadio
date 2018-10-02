@@ -30,7 +30,8 @@ export class StationComponent implements OnInit {
   loadMeta() {
 
     this.http.get(`http://localhost:80/dashboard/meta.php?id=${this.id}`)
-      .subscribe(data => {
+      .subscribe((data) => {
+        if(!data) return;
         this.artistName = data['track'].split(' -').shift();
       });
 
@@ -42,7 +43,7 @@ export class StationComponent implements OnInit {
     this.activatedRoute.params.subscribe((params: Params) => {
 
       this.http.get('https://frentsel.github.io/angularRadio/assets/stations.json')
-        .subscribe(data => {
+        .subscribe((data) => {
           this.station = data[this.id];
           this.stationService.emitChange(data[this.id].radio);
           this.loadMeta();

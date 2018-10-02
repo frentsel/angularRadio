@@ -6,16 +6,16 @@ import { ArtistPreviewModule } from '../../components/artist-preview/artist-prev
 import { SimilarModule } from '../../components/similar/similar.module';
 
 const routes: Routes = [{
-  path: ':artist',
+  path: '',
   component: ArtistComponent,
   children: [
-    { path: '', redirectTo: 'bio', pathMatch: 'full' },
-    { path: 'bio', loadChildren: 'app/pages/artist/bio/bio.module#BioModule' },
-    { path: 'playlist', loadChildren: 'app/pages/artist/playlist/playlist.module#PlaylistModule' },
-    { path: 'albums', loadChildren: 'app/pages/artist/albums/albums.module#AlbumsModule' },
-    { path: 'album/:album', loadChildren: 'app/pages/album/album.module#AlbumModule' },
-    { path: 'video', loadChildren: 'app/pages/artist/playlist/playlist.module#PlaylistModule' },
-    { path: 'photos', loadChildren: 'app/pages/artist/photos/photos.module#PhotosModule' },
+    { path: ':artist', redirectTo: 'bio', pathMatch: 'full' },
+    { path: ':artist/bio', loadChildren: 'app/pages/artist/bio/bio.module#BioModule' },
+    { path: ':artist/playlist', loadChildren: 'app/pages/artist/playlist/playlist.module#PlaylistModule' },
+    { path: ':artist/albums', loadChildren: 'app/pages/artist/albums/albums.module#AlbumsModule' },
+    { path: ':artist/album/:album', loadChildren: 'app/pages/album/album.module#AlbumModule' },
+    { path: ':artist/video', loadChildren: 'app/pages/artist/playlist/playlist.module#PlaylistModule' },
+    { path: ':artist/photos', loadChildren: 'app/pages/artist/photos/photos.module#PhotosModule' },
   ]
 }];
 

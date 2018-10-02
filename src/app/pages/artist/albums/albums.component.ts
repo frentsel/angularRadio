@@ -20,12 +20,12 @@ export class AlbumsComponent implements OnInit {
 
   loadAlbums() {
 
-    this.route.parent.params.subscribe(() => {
+    this.route.parent.params.subscribe(({ artist }) => {
 
-      this.artist = window.location.pathname.split('/').slice(-2)[0];
+      this.artist = artist;
       const params = {
-        artist: this.artist,
-        limit: 50,
+        artist,
+        limit: 50
       };
 
       this.albums$ = this.api.getAlbums(params);

@@ -1,4 +1,4 @@
-<h1>{{artistName}}: Albums</h1>
+<h1>{{artist}} Альбомы</h1>
 <div class="albums">
   <div *ngFor="let album of albums$ | async" class="album">
     <a routerLink="/artist/{{album.artist.name}}/album/{{album.name}}" title="{{album.name}}">{{album.name}}</a>

@@ -34,14 +34,15 @@ export class PhotosComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.parent.params.subscribe(() => {
-      this.artist = window.location.pathname.split('/').slice(-2)[0];
-      
+    this.route.parent.params.subscribe(({ artist }) => {
+
+      this.artist = artist;
+
       const params = {
-        artist: this.artist,
+        artist,
         method: 'getArtistImages',
       };
-  
+
       this.http.getJSON(this.uri, params).then((photos) => {
         this.buildListPhoto(photos);
       });

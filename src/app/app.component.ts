@@ -11,8 +11,9 @@ export class AppComponent {
   public src: string = '';
 
   constructor(private stationService: StationService) {
-    this.stationService.changeEmitted$.subscribe((text) => {
-      this.src = text;
-    });
+    this.stationService.changeEmitted$
+      .subscribe((text) => {
+        this.src = text;
+      });
   }
 }

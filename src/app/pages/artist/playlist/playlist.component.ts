@@ -13,16 +13,12 @@ export class PlaylistComponent implements OnInit {
   title: string = 'Top 50 tracks';
 
   constructor(
-    private activatedRoute: ActivatedRoute,
+    private route: ActivatedRoute,
     private api: LastFmService,
   ) { }
 
   ngOnInit() {
-
-    this.activatedRoute.parent.params.subscribe(() => {
-
-      const artist = window.location.pathname.split('/').slice(-2)[0];
-
+    this.route.parent.params.subscribe(({ artist }) => {
       this.tracks = this.api.getTracks({ artist });
     });
   }
